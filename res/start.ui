@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>500</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>16777215</width>
+    <height>16777215</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Balken</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">gridline-color: rgb(0, 0, 0);
+border-color: rgb(0, 0, 0);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_2">
+    <property name="sizeConstraint">
+     <enum>QLayout::SetDefaultConstraint</enum>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <property name="horizontalSpacing">
+     <number>10</number>
+    </property>
+    <property name="verticalSpacing">
+     <number>20</number>
+    </property>
+    <item row="0" column="0">
+     <layout class="QGridLayout" name="gridLayout" rowstretch="0,0,0,0,0,0" columnstretch="0,0,0,0,0">
+      <property name="sizeConstraint">
+       <enum>QLayout::SetDefaultConstraint</enum>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>20</number>
+      </property>
+      <property name="horizontalSpacing">
+       <number>25</number>
+      </property>
+      <property name="verticalSpacing">
+       <number>15</number>
+      </property>
+      <item row="2" column="1">
+       <widget class="Line" name="line_5">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="Line" name="line_8">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="3">
+       <widget class="Line" name="line_7">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Berechnet die Querkraftbewehrung an einem Einfeldträger mit gleichmäßiger Streckenlast und einer auflagernahen Einzellast. Anschließend wird eine passende Querkraftbewehrung gewählt.</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+        <property name="margin">
+         <number>10</number>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="3">
+       <widget class="QPushButton" name="buttonSchnitt">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>80</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Schnitt</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="3">
+       <widget class="Line" name="line_4">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLabel" name="imgSchnitt_2">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>1</width>
+          <height>1</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>300</width>
+          <height>200</height>
+         </size>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::NoFrame</enum>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>system.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QPushButton" name="buttonSystem">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>80</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>System</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="3">
+       <widget class="QLabel" name="imgSchnitt_3">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>1</width>
+          <height>1</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>300</width>
+          <height>200</height>
+         </size>
+        </property>
+        <property name="accessibleDescription">
+         <string/>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::NoFrame</enum>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>schnitt.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Expanding</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="2" column="4">
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Expanding</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="5" column="3">
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Berechnet die Querkraftbewehrung an einem Querschnitt mit gegebender Querkraft. Anschließend wird eine passende Querkraftbewehrung gewählt.</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+        <property name="margin">
+         <number>10</number>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2" rowspan="6">
+       <widget class="Line" name="line">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuBerechnung">
+    <property name="title">
+     <string>Berechnung</string>
+    </property>
+    <widget class="QMenu" name="menuSystem">
+     <property name="title">
+      <string>System</string>
+     </property>
+     <addaction name="actionWechselnSystem"/>
+    </widget>
+    <widget class="QMenu" name="menuSchnitt">
+     <property name="title">
+      <string>Schnitt</string>
+     </property>
+     <addaction name="actionWechselnSchnitt"/>
+    </widget>
+    <widget class="QMenu" name="menuStart">
+     <property name="title">
+      <string>Start</string>
+     </property>
+     <addaction name="actionWechselnStart"/>
+    </widget>
+    <addaction name="menuSystem"/>
+    <addaction name="menuSchnitt"/>
+    <addaction name="separator"/>
+    <addaction name="menuStart"/>
+    <addaction name="actionBeenden"/>
+   </widget>
+   <widget class="QMenu" name="menuHilfe">
+    <property name="title">
+     <string>Hilfe</string>
+    </property>
+    <addaction name="actionHilfe"/>
+    <addaction name="separator"/>
+    <addaction name="actionInfo"/>
+   </widget>
+   <addaction name="menuBerechnung"/>
+   <addaction name="menuHilfe"/>
+  </widget>
+  <action name="actionBeenden">
+   <property name="text">
+    <string>Beenden</string>
+   </property>
+  </action>
+  <action name="actionWechselnSystem">
+   <property name="text">
+    <string>wechseln...</string>
+   </property>
+  </action>
+  <action name="actionNeuesFensterSystem">
+   <property name="text">
+    <string>neues Fenster</string>
+   </property>
+  </action>
+  <action name="actionWechselnSchnitt">
+   <property name="text">
+    <string>wechseln...</string>
+   </property>
+  </action>
+  <action name="actionNeuesFensterSchnitt">
+   <property name="text">
+    <string>neues Fenster</string>
+   </property>
+  </action>
+  <action name="actionInfo">
+   <property name="text">
+    <string>Über...</string>
+   </property>
+  </action>
+  <action name="actionHilfe">
+   <property name="text">
+    <string>Hilfe</string>
+   </property>
+  </action>
+  <action name="actionWechselnStart">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>wechseln...</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonSystem</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>loadSystem()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>289</x>
+     <y>297</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>279</x>
+     <y>476</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonSchnitt</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>loadSchnitt()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>614</x>
+     <y>293</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>635</x>
+     <y>479</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>loadSystem()</slot>
+  <slot>loadSchnitt()</slot>
+ </slots>
+</ui>

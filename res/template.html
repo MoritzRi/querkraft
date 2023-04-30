@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Berechnungen</title>
+
+<style>
+@page {
+    size: A3;
+    margin: 2em 2em 2em 2em;
+}
+.frac {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    letter-spacing: 0.001em;
+    text-align: center;
+}
+.frac > span {
+    display: block;
+    padding: 0.1em;
+}
+.frac span.bottom {
+    border-top: thin solid black;
+}
+.frac span.symbol {
+    display: none;
+}
+
+.fracSmall {
+    display: inline-block;
+    position: relative;
+    vertical-align: baseline;
+    letter-spacing: 0.001em;
+    text-align: center;
+    font-size: small;
+    padding: 0.05em;
+}
+.fracSmall > span {
+    display: block;
+}
+.fracSmall span.bottom {
+    border-top: thin solid black;
+    padding-top: 0.03em;
+}
+.fracSmall span.symbol {
+    display: none;
+}
+
+.sub{
+vertical-align: sub;
+font-size: small;
+}
+.sup{
+vertical-align: super;
+font-size: small;
+}
+
+#nachweis {
+display: block;
+text-align: center;
+font-size: large;
+margin-bottom: 20px;
+}
+
+.column {
+ float: left;
+ width: 50%;
+ height: 600px;
+}
+
+.row:after {
+ content: "";
+ display: table;
+ clear: both;
+}
+</style>
+
+</head>
+<body>
+
+    <div class="row">
+ 
+        <div class="column" >
+
+            <h1>Eingabeparameter</h1>
+            %plch1%
+        </div>
+    
+        <div class="column">
+            
+            <h1>Ausgabeparameter</h1>
+            %plch0%
+        </div>
+
+	
+<h1>Berechnungen</h1>
+%plch2%<br>
+%plch3%<br>
+%plch4%<br>
+%plch5%<br>
+%plch6%<br>
+%plch7%<br>
+%plch8%<br>
+</body>
+</html>

@@ -1,0 +1,1460 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>500</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Balken</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>icon.png</normaloff>icon.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QGroupBox { 
+     border: 1px solid gray; 
+     border-radius: 3px; 
+ } 
+
+QGroupBox::title { 
+    background-color: transparent;
+    subcontrol-position: top left;
+    padding:5 10px;
+ } </string>
+  </property>
+  <property name="tabShape">
+   <enum>QTabWidget::Rounded</enum>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_2" rowstretch="10,10,10,4" columnstretch="0,0,0,0">
+    <property name="leftMargin">
+     <number>20</number>
+    </property>
+    <property name="topMargin">
+     <number>20</number>
+    </property>
+    <property name="rightMargin">
+     <number>20</number>
+    </property>
+    <property name="bottomMargin">
+     <number>20</number>
+    </property>
+    <property name="spacing">
+     <number>20</number>
+    </property>
+    <item row="2" column="2">
+     <widget class="QLabel" name="labelErgebnis">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-color: rgb(255, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1" colspan="2">
+     <widget class="QLabel" name="labelFragezeichen">
+      <property name="text">
+       <string>= Halte die Maus über das Fragezeichen, um mehr zu erfahren.</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="3">
+     <widget class="QPushButton" name="berechnen">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string>Berechnen</string>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="3">
+     <widget class="QGroupBox" name="groupBox_3">
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+        <underline>true</underline>
+       </font>
+      </property>
+      <property name="title">
+       <string>Betonart:</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2" stretch="1,1,1">
+       <item>
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Preferred</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QComboBox" name="dropDown">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="autoFillBackground">
+          <bool>false</bool>
+         </property>
+         <property name="editable">
+          <bool>false</bool>
+         </property>
+         <property name="currentText">
+          <string>C30/37</string>
+         </property>
+         <property name="currentIndex">
+          <number>4</number>
+         </property>
+         <property name="sizeAdjustPolicy">
+          <enum>QComboBox::AdjustToContentsOnFirstShow</enum>
+         </property>
+         <property name="frame">
+          <bool>true</bool>
+         </property>
+         <item>
+          <property name="text">
+           <string>C12/15</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>C16/20</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>C20/25</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>C25/30</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>C30/37</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>C35/45</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>C40/50</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>C50/60</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Preferred</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="1" column="3">
+     <widget class="QGroupBox" name="groupBox_4">
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+        <underline>true</underline>
+       </font>
+      </property>
+      <property name="title">
+       <string>Nachkommastellen:</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout" stretch="1,1,1">
+       <item>
+        <spacer name="verticalSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Preferred</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QComboBox" name="dropDown_2">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="autoFillBackground">
+          <bool>false</bool>
+         </property>
+         <property name="editable">
+          <bool>false</bool>
+         </property>
+         <property name="currentText">
+          <string>2</string>
+         </property>
+         <property name="currentIndex">
+          <number>2</number>
+         </property>
+         <property name="sizeAdjustPolicy">
+          <enum>QComboBox::AdjustToContentsOnFirstShow</enum>
+         </property>
+         <property name="frame">
+          <bool>true</bool>
+         </property>
+         <item>
+          <property name="text">
+           <string>Keine</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>1</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>2</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>3</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>4</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>5</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_5">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Preferred</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="0" column="0" rowspan="3" colspan="2">
+     <widget class="QGroupBox" name="groupBox">
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+        <underline>true</underline>
+       </font>
+      </property>
+      <property name="accessibleDescription">
+       <string/>
+      </property>
+      <property name="title">
+       <string>Eingabeparameter:</string>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <layout class="QGridLayout" name="gridLayout">
+         <property name="leftMargin">
+          <number>9</number>
+         </property>
+         <property name="topMargin">
+          <number>9</number>
+         </property>
+         <property name="rightMargin">
+          <number>9</number>
+         </property>
+         <property name="bottomMargin">
+          <number>9</number>
+         </property>
+         <item row="6" column="2">
+          <widget class="QLabel" name="einheitQed">
+           <property name="text">
+            <string>kN</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="0">
+          <widget class="QLabel" name="label_qed">
+           <property name="text">
+            <string>Qed</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="1">
+          <widget class="QLineEdit" name="qed">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>350</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="2">
+          <widget class="QLabel" name="einheitCv">
+           <property name="text">
+            <string>cm</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="1">
+          <widget class="QLineEdit" name="ned">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>0</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="2">
+          <widget class="QLabel" name="einheitAlpha">
+           <property name="text">
+            <string>°</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="2">
+          <widget class="QLabel" name="einheitStatHohe">
+           <property name="text">
+            <string>cm</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="2">
+          <widget class="QLabel" name="einheitNed">
+           <property name="text">
+            <string>kN</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QLabel" name="einheitBreite">
+           <property name="text">
+            <string>cm</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_breite">
+           <property name="text">
+            <string>Breite:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="hohe">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>65</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_hohe">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="contextMenuPolicy">
+            <enum>Qt::DefaultContextMenu</enum>
+           </property>
+           <property name="text">
+            <string>Höhe:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="breite">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>30</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="einheitHohe">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>cm</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="zugbewehrung">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>29.5</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_statHohe">
+           <property name="text">
+            <string>Statische Höhe:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="2">
+          <widget class="QLabel" name="einheitZugbewehrung">
+           <property name="text">
+            <string>cm²</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="statHohe">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>59</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="0">
+          <widget class="QLabel" name="label_alpha">
+           <property name="text">
+            <string>Bügelneigung:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="QLineEdit" name="alpha">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>90</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QLineEdit" name="cv">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>4.5</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="label_cv">
+           <property name="text">
+            <string>Betondeckung:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_zugbewehrung">
+           <property name="text">
+            <string>Zugbewehrung:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="0">
+          <widget class="QLabel" name="label_ned">
+           <property name="text">
+            <string>Ned:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3">
+          <widget class="QLabel" name="iconFragezeichenHohe">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap>iconFragezeichen.png</pixmap>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="3">
+          <widget class="QLabel" name="iconFragezeichenBreite">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap>iconFragezeichen.png</pixmap>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="3">
+          <widget class="QLabel" name="iconFragezeichenStatHohe">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap>iconFragezeichen.png</pixmap>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="3">
+          <widget class="QLabel" name="iconFragezeichenZugbewehrung">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap>iconFragezeichen.png</pixmap>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="3">
+          <widget class="QLabel" name="iconFragezeichenCv">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap>iconFragezeichen.png</pixmap>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="3">
+          <widget class="QLabel" name="iconFragezeichenAlpha">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap>iconFragezeichen.png</pixmap>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="3">
+          <widget class="QLabel" name="iconFragezeichenQed">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap>iconFragezeichen.png</pixmap>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="3">
+          <widget class="QLabel" name="iconFragezeichenNed">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap>iconFragezeichen.png</pixmap>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="2" column="3">
+     <widget class="QGroupBox" name="groupBoxOutput">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+        <underline>true</underline>
+       </font>
+      </property>
+      <property name="title">
+       <string>Output:</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_3" rowstretch="0,0,0,0,0">
+       <item row="0" column="1">
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Preferred</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="2" column="1">
+        <widget class="QRadioButton" name="radioButtonKurz">
+         <property name="text">
+          <string>kurz</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLabel" name="labelSpeichern">
+         <property name="text">
+          <string>Speichern als:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="5">
+        <widget class="QRadioButton" name="radioButtonAusfuhrlich">
+         <property name="text">
+          <string>ausführlich</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="6">
+        <widget class="QLabel" name="iconFragezeichenOutput">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>15</width>
+           <height>15</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>15</width>
+           <height>15</height>
+          </size>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::LeftToRight</enum>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap>iconFragezeichen.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="4" column="5">
+        <widget class="QPushButton" name="buttonSpeichernHtml">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>.HTML</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QPushButton" name="buttonSpeichernPdf">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>.PDF</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="iconFragezeichen">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>15</width>
+        <height>15</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>15</width>
+        <height>15</height>
+       </size>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Genau so!&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>iconFragezeichen.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuBerechnen">
+    <property name="title">
+     <string>Berechnen</string>
+    </property>
+    <widget class="QMenu" name="menuSystem">
+     <property name="title">
+      <string>System</string>
+     </property>
+     <addaction name="actionWechselnSystem"/>
+    </widget>
+    <widget class="QMenu" name="menuSchnitt">
+     <property name="title">
+      <string>Schnitt</string>
+     </property>
+     <addaction name="actionWechselnSchnitt"/>
+    </widget>
+    <widget class="QMenu" name="menuStart">
+     <property name="title">
+      <string>Start</string>
+     </property>
+     <addaction name="actionWechselnStart"/>
+    </widget>
+    <addaction name="menuSystem"/>
+    <addaction name="menuSchnitt"/>
+    <addaction name="separator"/>
+    <addaction name="menuStart"/>
+    <addaction name="actionBeenden"/>
+   </widget>
+   <widget class="QMenu" name="menuHilfe">
+    <property name="title">
+     <string>Hilfe</string>
+    </property>
+    <addaction name="actionHilfe"/>
+    <addaction name="separator"/>
+    <addaction name="actionInfo"/>
+   </widget>
+   <addaction name="menuBerechnen"/>
+   <addaction name="menuHilfe"/>
+  </widget>
+  <action name="actionbeenden">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>beenden</string>
+   </property>
+  </action>
+  <action name="actioninfo">
+   <property name="text">
+    <string>info</string>
+   </property>
+  </action>
+  <action name="actionBeenden">
+   <property name="text">
+    <string>Beenden</string>
+   </property>
+  </action>
+  <action name="actionWechselnSystem">
+   <property name="text">
+    <string>wechseln...</string>
+   </property>
+  </action>
+  <action name="actionWechselnSchnitt">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>wechseln...</string>
+   </property>
+  </action>
+  <action name="actionneues_Fenster">
+   <property name="text">
+    <string>neues Fenster</string>
+   </property>
+  </action>
+  <action name="actionNeuesFensterSystem">
+   <property name="text">
+    <string>neues Fenster</string>
+   </property>
+  </action>
+  <action name="actionInfo">
+   <property name="text">
+    <string>Über...</string>
+   </property>
+  </action>
+  <action name="actionHilfe">
+   <property name="text">
+    <string>Hilfe</string>
+   </property>
+  </action>
+  <action name="actionFragezeichenEinblenden">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>iconFragezeichen.png</normaloff>iconFragezeichen.png</iconset>
+   </property>
+   <property name="text">
+    <string>Fragezeichen einblenden</string>
+   </property>
+  </action>
+  <action name="actionWechselnStart">
+   <property name="text">
+    <string>wechseln...</string>
+   </property>
+  </action>
+ </widget>
+ <tabstops>
+  <tabstop>hohe</tabstop>
+  <tabstop>breite</tabstop>
+  <tabstop>statHohe</tabstop>
+  <tabstop>zugbewehrung</tabstop>
+  <tabstop>cv</tabstop>
+  <tabstop>alpha</tabstop>
+  <tabstop>qed</tabstop>
+  <tabstop>ned</tabstop>
+  <tabstop>dropDown</tabstop>
+  <tabstop>dropDown_2</tabstop>
+  <tabstop>radioButtonKurz</tabstop>
+  <tabstop>radioButtonAusfuhrlich</tabstop>
+  <tabstop>berechnen</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>hohe</sender>
+   <signal>returnPressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>enter()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>249</x>
+     <y>99</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>41</x>
+     <y>388</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>breite</sender>
+   <signal>returnPressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>enter()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>249</x>
+     <y>133</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>78</x>
+     <y>419</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>qed</sender>
+   <signal>returnPressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>enter()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>249</x>
+     <y>303</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>125</x>
+     <y>441</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>statHohe</sender>
+   <signal>returnPressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>enter()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>249</x>
+     <y>167</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>241</x>
+     <y>456</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>zugbewehrung</sender>
+   <signal>returnPressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>enter()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>249</x>
+     <y>201</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>405</x>
+     <y>461</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cv</sender>
+   <signal>returnPressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>enter()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>249</x>
+     <y>235</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>473</x>
+     <y>452</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>alpha</sender>
+   <signal>returnPressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>enter()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>249</x>
+     <y>269</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>554</x>
+     <y>451</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ned</sender>
+   <signal>returnPressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>enter()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>249</x>
+     <y>337</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>638</x>
+     <y>471</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>berechnen</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>clickedSchnittButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>671</x>
+     <y>422</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>734</x>
+     <y>461</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>hohe</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>validate()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>236</x>
+     <y>99</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>644</x>
+     <y>217</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>breite</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>validate()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>200</x>
+     <y>130</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>658</x>
+     <y>247</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>statHohe</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>validate()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>249</x>
+     <y>167</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>638</x>
+     <y>269</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>zugbewehrung</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>validate()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>187</x>
+     <y>199</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>603</x>
+     <y>283</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cv</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>validate()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>165</x>
+     <y>234</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>679</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>alpha</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>validate()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>233</x>
+     <y>269</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>665</x>
+     <y>316</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>qed</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>validate()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>132</x>
+     <y>300</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>624</x>
+     <y>329</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ned</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>validate()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>249</x>
+     <y>337</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>607</x>
+     <y>230</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonSpeichernHtml</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>speichernHtml()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>679</x>
+     <y>381</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>588</x>
+     <y>377</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonSpeichernPdf</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>speichernPdf()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>729</x>
+     <y>382</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>599</x>
+     <y>407</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>enter()</slot>
+  <slot>clicked()</slot>
+  <slot>clickedSchnittButton()</slot>
+  <slot>validate()</slot>
+  <slot>speichernHtml()</slot>
+  <slot>speichernPdf()</slot>
+ </slots>
+</ui>

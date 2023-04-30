@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Berechnungen</title>
+
+<style>
+@page {
+    size: A3;
+    margin: 2em 2em 2em 2em;
+}
+.frac {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    letter-spacing: 0.001em;
+    text-align: center;
+}
+.frac > span {
+    display: block;
+    padding: 0.1em;
+}
+.frac span.bottom {
+    border-top: thin solid black;
+}
+.frac span.symbol {
+    display: none;
+}
+
+.fracSmall {
+    display: inline-block;
+    position: relative;
+    vertical-align: baseline;
+    letter-spacing: 0.001em;
+    text-align: center;
+    font-size: small;
+    padding: 0.05em;
+}
+.fracSmall > span {
+    display: block;
+}
+.fracSmall span.bottom {
+    border-top: thin solid black;
+    padding-top: 0.03em;
+}
+.fracSmall span.symbol {
+    display: none;
+}
+
+.sub{
+vertical-align: sub;
+font-size: small;
+}
+.sup{
+vertical-align: super;
+font-size: small;
+}
+
+#nachweis {
+display: block;
+text-align: center;
+font-size: large;
+margin-bottom: 20px;
+}
+
+.column {
+ float: left;
+ width: 50%;
+ height: 600px;
+}
+
+.row:after {
+ content: "";
+ display: table;
+ clear: both;
+}
+</style>
+
+</head>
+<body>
+
+    <div class="row">
+ 
+        <div class="column" >
+
+            <h1>Eingabeparameter</h1>
+            <pre style="margin: 5px;padding: 0px">
+Höhe              = 65.0 cm<br>
+Breite            = 30.0 cm<br>
+statische Höhe    = 59.0 cm<br>
+Zugbewehrung      = 29.5 cm²<br>
+Verlegemaß        = 4.5 cm<br>
+Alpha             = 90.0 °<br>
+N<span class = "sub">Ed</span>               = 0.0 kN<br>
+V<span class = "sub">Ed</span>               = 350.0 kN<br>
+</pre>
+
+        </div>
+    
+        <div class="column">
+            
+            <h1>Ausgabeparameter</h1>
+            <pre style="margin: 5px;padding: 0px">
+V<span class = "sub">Ed</span>       = 350.0    kN<br>
+d         = 590.0    mm<br>
+k         = 1.58     <br>
+&#961 <span class = "sub">l</span>       = 0.02     <br>
+A<span class = "sub">sl</span>       = 2950.0   cm²<br>
+V<span class = "sub">Rd,c</span>     = 103.17   kN<br>
+V<span class = "sub">Rd,cc</span>    = 112.53   kN<br>
+cot(&#920)    = 1.77     (29.48°)<br>
+z         = 503.0    mm<br>
+&#963 <span class = "sub">cd</span>      = -0.0     N/mm²<br>
+&#963 <span class = "sub">cp</span>      = -0.0     N/mm²<br>
+V<span class = "sub">Rd,max</span>   = 824.31   kN<br>
+a<span class = "sub">sw</span>       = 9.04     cm²<br>
+a<span class = "sub">sw,min</span>   = 2.79     cm²<br>
+&#961 <span class = "sub">w,min</span>   = 0.93     <br>
+</pre>
+
+        </div>
+
+	
+<h1>Berechnungen</h1>
+<hr>
+<h2 style="margin-left: 0px;margin-bottom: 10px" id="1) Querkräfte berechnen"><u>1) Querkräfte berechnen</u></h2>
+
+<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Querkraft gegeben:</span><br><br>
+<span style="margin-left: 40px">
+V<span class = "sub">Ed</span>  = 350.0 kN</span><br><br>
+<br>
+<hr>
+<h2 style="margin-left: 0px;margin-bottom: 10px" id="2) Querkraftbewehrung erforderlich?"><u>2) Querkraftbewehrung erforderlich?</u></h2>
+
+<span style="margin-left: 40px">
+k = 1.58 </span><br><br>
+<span style="margin-left: 40px">
+&#961 <span class = "sub">l</span>  = 0.02 </span><br><br>
+<span style="margin-left: 40px">
+f<span class = "sub">ck</span>  = 30 <div class="fracSmall"><span>N</span><span class="symbol">/</span> <span class="bottom">mm²</span> </div></span><br><br>
+<span style="margin-left: 40px">
+f<span class = "sub">cd</span>  = 17 <div class="fracSmall"><span>N</span><span class="symbol">/</span> <span class="bottom">mm²</span> </div></span><br><br>
+<span style="margin-left: 40px">
+&#963 <span class = "sub">cp</span>  = -0.0 <div class="fracSmall"><span>N</span><span class="symbol">/</span> <span class="bottom">mm²</span> </div></span><br><br>
+<span style="margin-left: 40px">
+&#957 <span class = "sub">min</span>  = 0.38 <div class="fracSmall"><span>N</span><span class="symbol">/</span> <span class="bottom">mm²</span> </div></span><br><br>
+<span style="margin-left: 40px">
+V<span class = "sub">Rd,c</span>  = 103.17 kN</span><br><br>
+<span id="nachweis">
+<div class="frac"><span>V<span class = "sub">Ed</span> </span><span class="symbol">/</span> <span class="bottom">V<span class = "sub">Rd,c</span> </span> </div> = <div class="frac"><span>350.0</span><span class="symbol">/</span> <span class="bottom">103.17</span> </div> = <span style="font-size: 20px;">3.39</span><span style="font-size: 28px;"> > 1   &#8623 </span><br>Damit ist der Nachweis <b>nicht</b> erfüllt.
+ </span><span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Somit ist rechnerisch eine Querkraftbewehrung erforderlich.</span><br><br>
+<br>
+<hr>
+<h2 style="margin-left: 0px;margin-bottom: 10px" id="3) Berechnung der Druckstrebenneigung"><u>3) Berechnung der Druckstrebenneigung</u></h2>
+
+<span style="margin-left: 40px">
+z = 503.0 mm</span><br><br>
+<span style="margin-left: 40px">
+V<span class = "sub">Rd,cc</span>  = 112.53 kN</span><br><br>
+<span style="margin-left: 40px">
+cot(&#920) = 1.77 </span><br><br>
+<span style="margin-left: 40px">
+&#920 = 29.48 °</span><br><br>
+<br>
+<hr>
+<h2 style="margin-left: 0px;margin-bottom: 10px" id="4) Nachweis der Druckstrebe"><u>4) Nachweis der Druckstrebe</u></h2>
+
+<span style="margin-left: 40px">
+V<span class = "sub">Rd,max</span>  = 824.31 kN</span><br><br>
+<span id="nachweis">
+<div class="frac"><span>V<span class = "sub">Ed</span> </span><span class="symbol">/</span> <span class="bottom">V<span class = "sub">Rd,max</span> </span> </div> = <div class="frac"><span>350.0</span><span class="symbol">/</span> <span class="bottom">824.31</span> </div> = <span style="font-size: 20px;">0.42</span><span style="font-size: 28px;"> &#8804  1     &#10004 </span><br>Damit ist der Nachweis erfüllt.
+ </span><span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Somit kann die Druckstrebe die auftretenden Druckspannungen aufnehmen.</span><br><br>
+<br>
+<hr>
+<h2 style="margin-left: 0px;margin-bottom: 10px" id="5) Ermittlung der erforderlichen Querkraftbewehrung"><u>5) Ermittlung der erforderlichen Querkraftbewehrung</u></h2>
+
+<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">f<span class = "sub">ywd</span>  = 435 <div class="fracSmall"><span>N</span><span class="symbol">/</span> <span class="bottom">mm²</span> </div></span><br><br>
+<span style="margin-left: 40px">
+a<span class = "sub">sw</span>  = 9.04 <div class="fracSmall"><span>cm²</span><span class="symbol">/</span> <span class="bottom">m</span> </div></span><br><br>
+<br>
+<hr>
+<h2 style="margin-left: 0px;margin-bottom: 10px" id="6) Einhalten der Mindestbewehrung"><u>6) Einhalten der Mindestbewehrung</u></h2>
+
+<span style="margin-left: 40px">
+C30/37 = 0 </span><br><br>
+<span style="margin-left: 40px">
+&#961 <span class = "sub">w,min</span>  = 0.93 ‰</span><br><br>
+<span style="margin-left: 40px">
+a<span class = "sub">sw,min</span>  = 2.79 <div class="fracSmall"><span>cm²</span><span class="symbol">/</span> <span class="bottom">m</span> </div></span><br><br>
+<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Somit ist diese Grenze eingehalten.</span><br><br>
+<br>
+<hr>
+<h2 style="margin-left: 0px;margin-bottom: 10px" id="7) Wahl der Bewehrung"><u>7) Wahl der Bewehrung</u></h2>
+
+<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">0.3 · V<span class = "sub">Rd,max</span>   &#8804  V<span class = "sub">Ed</span>   &#8804  0.6 · V<span class = "sub">Rd,max</span>   => maximaler Abstand = 30 cm</span><br><br>
+<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Gewählte Bügelbewehrung (2-schnittig):</span><br><br>
+<span style="margin-left: 80px;margin-bottom: 30px;margin-top: 30px">Durchmesser: 12 mm</span><br><br>
+<span style="margin-left: 80px;margin-bottom: 30px;margin-top: 30px">Abstand: 25.0 cm</span><br><br>
+<span style="margin-left: 80px;margin-bottom: 30px;margin-top: 30px">Vorhandene Bewehung: 9.05<div class="frac"><span>cm²</span><span class="symbol">/</span> <span class="bottom">m</span> </div></span><br><br>
+<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Berechnung zu Ende.</span><br><br>
+<br>
+</body>
+</html>
