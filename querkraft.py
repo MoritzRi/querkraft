@@ -5,33 +5,15 @@ import sys
 import numpy as np
 import math
 import os
-import platform
-from types import SimpleNamespace
 
-from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QLineEdit, QRadioButton, QComboBox, QPushButton, QMessageBox, QGridLayout, QWidget, QGroupBox, QMenuBar
-from PyQt5.QtCore import pyqtSignal, Qt, QSize
-from PyQt5 import QtWidgets, QtGui, uic
+from PyQt5.QtWidgets import QApplication, QMainWindow, QLineEdit, QMessageBox, QWidget
+from PyQt5 import QtGui, uic
 from datetime import datetime
-
-from matplotlib.figure import Figure
-from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as Canvas
-import matplotlib
-from matplotlib.patches import Rectangle
-
 
 
 NACHWEIS_DRUCKSTREBE = False
 NACHWEIS_QUERKRAFTBEWEHRUNG = False
 
-
-# Ensure using PyQt5 backend
-matplotlib.use('QT5Agg')
-
-
-
-
-#windowWidth = 800
-#windowHeight = 500
 
 class Querkraft(QMainWindow):
 
@@ -79,6 +61,7 @@ class Querkraft(QMainWindow):
       
       return True
 
+
    # Wenn Knopf "Berechnen" im Schnittfenster gedrückt wird
    def clickedSchnittButton(self):      
       self.einzellastBox = False
@@ -91,6 +74,7 @@ class Querkraft(QMainWindow):
          return False
       
       return True
+
 
    # Führt die Berechnung am System durch
    def berechnenSystem(self):
@@ -112,6 +96,7 @@ class Querkraft(QMainWindow):
       
       return self.berechnung()
 
+
    # Führt die Berechnung am Schnitt durch
    def berechnenSchnitt(self):
       # Lagerung setzten, weil es beim Schnitt keine gibt
@@ -130,6 +115,7 @@ class Querkraft(QMainWindow):
       self.declareMissingVariables()
 
       return self.berechnung()
+
 
    # Der Teil der Berechnung, der bei System und Schnitt gleich ist
    def berechnung(self):
@@ -163,7 +149,7 @@ class Querkraft(QMainWindow):
       b = self.breite
       ratio = round(b/h, 3)
 
-      # Warnung  
+      # Warnung bei zu großem b/h Verhältnis
       if ratio >= 4:
          msg = QMessageBox()
          msg.setIcon(QMessageBox.Question)
@@ -183,6 +169,7 @@ class Querkraft(QMainWindow):
             return True
          elif msg.clickedButton() == buttonN:
             return False
+
 
    # Output-Datei wird hier erstellt (HTML)
    def speichernHtml(self):
@@ -210,6 +197,7 @@ class Querkraft(QMainWindow):
                'Abstand:    {} cm\n\n'
                'z/d:              {}/{} = {}').format(round(self.asw, komma), round(bewehrung, komma), s, d, round(a * 100, 1), self.z, self.statHohe, round(self.z/self.statHohe, komma+1))
       
+      # Wenn keine passende Bewehrung gefunden wurde
       if self.delta[1] == 99:
          string = ('Ergebnis:\n\n'
          	   'erf. asw:     {} cm²/m\n'
@@ -217,7 +205,6 @@ class Querkraft(QMainWindow):
                '                       gefunden!\n\n'
                'Bügel:         d = ? mm\n'
                'Abstand:    ? cm\n').format(round(self.asw, komma))
-
 
       # Wenn ein Nachweis nicht aufgegangen ist
       if NACHWEIS_QUERKRAFTBEWEHRUNG:
@@ -275,7 +262,6 @@ class Querkraft(QMainWindow):
       cw.setParent(None)
       self.loadUi('schnitt.ui')
       self.fenster = 'schnitt'
-      #self.inputListe = ['hohe', 'breite', 'statHohe', 'zugbewehrung', 'cv', 'alpha', 'qed', 'ned']
       self.inputListe = ['hohe', 'breite', 'lange', 'last', 'statHohe', 'auflagertiefe', 'zugbewehrung', 'cv', 'alpha', 'qed', 'ned', 'fed', 'av']
       self.vars = { name : 0 for name in self.inputListe}
 
@@ -306,6 +292,7 @@ class Querkraft(QMainWindow):
       msgHilfe.setWindowTitle('Info')
       msgHilfe.exec_()
 
+
    # Entertaste handlen um eine schnellere Eingabe zu ermöglichen
    def enter(self):
       # Das fokusierte Wisget getten
@@ -331,11 +318,8 @@ class Querkraft(QMainWindow):
          input = self.findChild(QLineEdit, self.inputListe[0])
 
       # Wenn es das nächste Widget nicht gibt -> Übernächstes
-      #if input == None:
-         #input = self.findChild(QLineEdit, self.inputListe[index + 2])
       i = 1
       while input == None:
-         print('Input ist None bei ' + self.inputListe[index + i])
          i += 1
          input = self.findChild(QLineEdit, self.inputListe[index + i])
 
@@ -385,6 +369,7 @@ class Querkraft(QMainWindow):
          self.vars['av'] = 0
 
       return True
+
 
    # Checkt ob Eingabe legitim ist, wenn der Input verändert wird
    def validate(self, input):
@@ -488,9 +473,6 @@ class Querkraft(QMainWindow):
       auflagertiefe = self.auflagertiefe / 100
       p = self.last
 
-      #vedStreckenlast = self.getVedStreckenlast()
-      #edEinzellast = self.getVedEinzellast()
-
       self.xAuflager = auflagertiefe / 2
       self.vedRand = self.vedStreckenlast - p * self.xAuflager + self.vedEinzellast
 
@@ -502,7 +484,7 @@ class Querkraft(QMainWindow):
 
    # berechnet Ved vermindert
    def getVedVermindert(self):
-      # NUR BEI DIREKTER LAGERUNG !
+      # WIRD NUR BEI DIREKTER LAGERUNG VERWENDET!
       # Lade Parameter
       auflagertiefe = self.auflagertiefe / 100
       b = self.breite / 100
@@ -807,6 +789,7 @@ class Querkraft(QMainWindow):
          if not NACHWEIS_DRUCKSTREBE:
             print('\nDer Nachweis der Druckstrebe ist nciht aufgegangen! Der Querschnitt muss vergrößert werden.')
 
+
    # ermittelt den maximal erlaubten Bügelabstand
    def maxBuegelAbstand(self):
       if self.vedAchse > 0.6*self.vRdMax:
@@ -818,9 +801,11 @@ class Querkraft(QMainWindow):
 
       return self.maxAbstand
 
+
    # Fläche eines Kreises
    def flaeche(self, durchmesser):
       return math.pi * (durchmesser/10 / 2)**2
+
 
    # Hebelarm der inneren Kräfte vereinfacht berechnen
    def getHebelarm(self, buegeldurchmesser = 10):
@@ -864,6 +849,7 @@ class Querkraft(QMainWindow):
       self.fed  = self.vars['fed']
       self.av  = self.vars['av']
    
+
    # fehlende Variablen declaren, die beim Schnitt sonst fehlen würden
    def declareMissingVariables(self):
       self.vedStreckenlast  = 0
@@ -886,6 +872,7 @@ def window():
    # app.setAttribute(Qt.AA_EnableHighDpiScaling, True)
    win.show()
    sys.exit(app.exec_())
+
 
 if __name__ == '__main__':
    window()

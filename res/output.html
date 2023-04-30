@@ -84,14 +84,14 @@ margin-bottom: 20px;
 
             <h1>Eingabeparameter</h1>
             <pre style="margin: 5px;padding: 0px">
-Höhe              = 65.0 cm<br>
+Höhe              = 60.0 cm<br>
 Breite            = 30.0 cm<br>
-statische Höhe    = 59.0 cm<br>
-Zugbewehrung      = 29.5 cm²<br>
-Verlegemaß        = 4.5 cm<br>
+statische Höhe    = 55.0 cm<br>
+Zugbewehrung      = 1.0 cm²<br>
+Verlegemaß        = 1.0 cm<br>
 Alpha             = 90.0 °<br>
-N<span class = "sub">Ed</span>               = 0.0 kN<br>
-V<span class = "sub">Ed</span>               = 350.0 kN<br>
+N<span class = "sub">Ed</span>               = 1.0 kN<br>
+V<span class = "sub">Ed</span>               = 200.0 kN<br>
 </pre>
 
         </div>
@@ -100,19 +100,19 @@ V<span class = "sub">Ed</span>               = 350.0 kN<br>
             
             <h1>Ausgabeparameter</h1>
             <pre style="margin: 5px;padding: 0px">
-V<span class = "sub">Ed</span>       = 350.0    kN<br>
-d         = 590.0    mm<br>
-k         = 1.58     <br>
-&#961 <span class = "sub">l</span>       = 0.02     <br>
-A<span class = "sub">sl</span>       = 2950.0   cm²<br>
-V<span class = "sub">Rd,c</span>     = 103.17   kN<br>
-V<span class = "sub">Rd,cc</span>    = 112.53   kN<br>
-cot(&#920)    = 1.77     (29.48°)<br>
-z         = 503.0    mm<br>
-&#963 <span class = "sub">cd</span>      = -0.0     N/mm²<br>
-&#963 <span class = "sub">cp</span>      = -0.0     N/mm²<br>
-V<span class = "sub">Rd,max</span>   = 824.31   kN<br>
-a<span class = "sub">sw</span>       = 9.04     cm²<br>
+V<span class = "sub">Ed</span>       = 200.0    kN<br>
+d         = 550.0    mm<br>
+k         = 1.60302  <br>
+&#961 <span class = "sub">l</span>       = 0.00061  <br>
+A<span class = "sub">sl</span>       = 100.0    cm²<br>
+V<span class = "sub">Rd,c</span>     = 64.08809 kN<br>
+V<span class = "sub">Rd,cc</span>    = 110.78519 kN<br>
+cot(&#920)    = 2.68911  (20.39866°)<br>
+z         = 495.0    mm<br>
+&#963 <span class = "sub">cd</span>      = -0.00556 N/mm²<br>
+&#963 <span class = "sub">cp</span>      = -0.00556 N/mm²<br>
+V<span class = "sub">Rd,max</span>   = 618.55171 kN<br>
+a<span class = "sub">sw</span>       = 3.45404  cm²<br>
 a<span class = "sub">sw,min</span>   = 2.79     cm²<br>
 &#961 <span class = "sub">w,min</span>   = 0.93     <br>
 </pre>
@@ -124,78 +124,222 @@ a<span class = "sub">sw,min</span>   = 2.79     cm²<br>
 <hr>
 <h2 style="margin-left: 0px;margin-bottom: 10px" id="1) Querkräfte berechnen"><u>1) Querkräfte berechnen</u></h2>
 
-<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Querkraft gegeben:</span><br><br>
-<span style="margin-left: 40px">
-V<span class = "sub">Ed</span>  = 350.0 kN</span><br><br>
+<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">V<span class = "sub">Ed</span>  = 200.0 kN (gegeben)</span><br><br>
 <br>
 <hr>
 <h2 style="margin-left: 0px;margin-bottom: 10px" id="2) Querkraftbewehrung erforderlich?"><u>2) Querkraftbewehrung erforderlich?</u></h2>
 
-<span style="margin-left: 40px">
-k = 1.58 </span><br><br>
-<span style="margin-left: 40px">
-&#961 <span class = "sub">l</span>  = 0.02 </span><br><br>
-<span style="margin-left: 40px">
-f<span class = "sub">ck</span>  = 30 <div class="fracSmall"><span>N</span><span class="symbol">/</span> <span class="bottom">mm²</span> </div></span><br><br>
-<span style="margin-left: 40px">
-f<span class = "sub">cd</span>  = 17 <div class="fracSmall"><span>N</span><span class="symbol">/</span> <span class="bottom">mm²</span> </div></span><br><br>
-<span style="margin-left: 40px">
-&#963 <span class = "sub">cp</span>  = -0.0 <div class="fracSmall"><span>N</span><span class="symbol">/</span> <span class="bottom">mm²</span> </div></span><br><br>
-<span style="margin-left: 40px">
-&#957 <span class = "sub">min</span>  = 0.38 <div class="fracSmall"><span>N</span><span class="symbol">/</span> <span class="bottom">mm²</span> </div></span><br><br>
-<span style="margin-left: 40px">
-V<span class = "sub">Rd,c</span>  = 103.17 kN</span><br><br>
+<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Zunächst werden alle erforderlichen Parameter berechnet, beginnend mit dem Maßstabsfaktor k:</span><br><br>
+<details style="margin-left: 80px">
+<summary>k = min <span style="font-size: 35px;">&#123</span> 1 + <span style="white-space: nowrap; font-size:larger">
+&radic;<span style="text-decoration:overline;">&nbsp;200 / d&nbsp;</span>
+</span>
+ <span style="font-size: 28.0px;">,</span> 2 <span style="font-size: 35px;">&#125</span> = min <span style="font-size: 35px;">&#123</span> 1 + <span style="white-space: nowrap; font-size:larger">
+&radic;<span style="text-decoration:overline;">&nbsp;200 / 550.0 mm&nbsp;</span>
+</span>
+ <span style="font-size: 28.0px;">,</span> 2 <span style="font-size: 35px;">&#125</span> = 1.60302 </summary>
+
+<p style="margin: 5px 5px 0px 40px"><font size="2">mit:</font></p>
+<ul style="margin-left: 40px;margin-top: 0px">
+    <li>d  : Die Statische Höhe in mm</li>
+</ul>
+</details><br><br>
+<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Der Längsbewehrungsgrad &#961 <span class = "sub">l</span>  wird wie folgt berechnet:</span><br><br>
+<details style="margin-left: 80px">
+<summary>&#961 <span class = "sub">l</span>  = min <span style="font-size: 35px;">&#123</span> <div class="frac"><span>A<span class = "sub">sl</span> </span><span class="symbol">/</span> <span class="bottom">b<span class = "sub">w</span>  · d</span> </div> <span style="font-size: 28.0px;">,</span> 0.02 <span style="font-size: 35px;">&#125</span> = min <span style="font-size: 35px;">&#123</span> <div class="frac"><span>100.0 mm²</span><span class="symbol">/</span> <span class="bottom">300.0 mm · 550.0 mm</span> </div> <span style="font-size: 28.0px;">,</span> 0.02 <span style="font-size: 35px;">&#125</span> = 0.00061 </summary>
+
+<p style="margin: 5px 5px 0px 40px"><font size="2">mit:</font></p>
+<ul style="margin-left: 40px;margin-top: 0px">
+    <li>A<span class = "sub">sl</span>   : Die Fläche der Zugbewehrung in mm²</li>
+    <li>d  : Die Statische Höhe in mm</li>
+    <li>b<span class = "sub">w</span>   : Die Querschnittsbreite in mm</li>
+</ul>
+</details><br><br>
+<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Der charakteristische Wert der Betondruckfestigkeit (f<span class = "sub">ck</span> ) und der Bemessungswert der Betondruckfestigkeit (f<span class = "sub">cd</span> ) bei einem C30/37 Beton betragen:</span><br><br>
+<span style="margin-left: 80px;margin-bottom: 30px;margin-top: 30px">f<span class = "sub">ck</span>  = 30 <div class="fracSmall"><span>N</span><span class="symbol">/</span> <span class="bottom">mm²</span> </div></span><br><br>
+<span style="margin-left: 80px;margin-bottom: 30px;margin-top: 30px">f<span class = "sub">cd</span>  = 17 <div class="fracSmall"><span>N</span><span class="symbol">/</span> <span class="bottom">mm²</span> </div></span><br><br>
+<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Anschließend kann der Bemessungswert der Betonlängsspannung (&#963 <span class = "sub">cp</span> ) berechnet werden.</span><br><br>
+<details style="margin-left: 80px">
+<summary>&#963 <span class = "sub">cp</span>  = min <span style="font-size: 35px;">&#123</span> <div class="frac"><span>N<span class = "sub">Ed</span>  · 1000</span><span class="symbol">/</span> <span class="bottom">A<span class = "sub">c</span> </span> </div> <span style="font-size: 28.0px;">,</span> 0.2 · f<span class = "sub">cd</span>  <span style="font-size: 35px;">&#125</span> = min <span style="font-size: 35px;">&#123</span> <div class="frac"><span>-1.0 kN · 1000</span><span class="symbol">/</span> <span class="bottom">180000.0 mm²</span> </div> <span style="font-size: 28.0px;">,</span> 0.2 · 17 <div class="fracSmall"><span>N</span><span class="symbol">/</span> <span class="bottom">mm²</span> </div> <span style="font-size: 35px;">&#125</span> = -0.00556 <div class="fracSmall"><span>N</span><span class="symbol">/</span> <span class="bottom">mm²</span> </div></summary>
+
+<p style="margin: 5px 5px 0px 40px"><font size="2">mit:</font></p>
+<ul style="margin-left: 40px;margin-top: 0px">
+    <li>A<span class = "sub">c</span>   : Die Querschnittsfläche des Betonbalkens in mm²</li>
+    <li>f<span class = "sub">cd</span>   : Der Bemessungswert der Betondruckfestigkeit in <div class="fracSmall"><span>N</span><span class="symbol">/</span> <span class="bottom">mm²</span> </div></li>
+    <li>N<span class = "sub">Ed</span>   : Die Bemessungswert der Normalkraft im Querschnitt infolge äußerer Einwirkungen (N<span class = "sub">Ed</span>  > 0 als Längsdruckkraft) in kN</li>
+</ul>
+</details><br><br>
+<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">In Querschnitten ist rechnerisch keine Querkraftbewehrung erforderlich, wenn die Bedingung 'V<span class = "sub">Ed</span>   &#8804  V<span class = "sub">Rd,c</span> ' erfüllt ist.</span><br><br>
+<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Mit den obenstehenden Werten kann nun V<span class = "sub">Rd,c</span>  berechnet werden.</span><br><br>
+<details style="margin-left: 80px">
+<summary>V<span class = "sub">Rd,c</span>  = <span style="font-size: 35px;">[</span>0.1 · k · (100 · &#961 <span class = "sub">l</span>  · f<span class = "sub">ck</span> )<span class = "sup">1/3</span>  + 0.12 · &#963 <span class = "sub">cp</span> <span style="font-size: 35px;">]</span> · b<span class = "sub">w</span>  · d ÷ 1000= <span style="font-size: 35px;">[</span>0.1 · 1.60302  · (100 · 0.00061  · 30 <div class="fracSmall"><span>N</span><span class="symbol">/</span> <span class="bottom">mm²</span> </div>)<span class = "sup">1/3</span>  + 0.12 · -0.00556 <div class="fracSmall"><span>N</span><span class="symbol">/</span> <span class="bottom">mm²</span> </div><span style="font-size: 35px;">]</span> · 300.0 mm · 550.0 mm ÷ 1000= 32.17267 kN</summary>
+
+<p style="margin: 5px 5px 0px 40px"><font size="2">mit:</font></p>
+<ul style="margin-left: 40px;margin-top: 0px">
+    <li>&#961 <span class = "sub">l</span>   : Der Längsbewhrungsgrad (einheitslos)</li>
+    <li>&#963 <span class = "sub">cp</span>   : Der Bemessungswert der Betonlängsspannung in Höhe des Schwerpunkts des Querschnitts in <div class="fracSmall"><span>N</span><span class="symbol">/</span> <span class="bottom">mm²</span> </div></li>
+    <li>d  : Die Statische Höhe in mm</li>
+    <li>b<span class = "sub">w</span>   : Die Querschnittsbreite in mm</li>
+    <li>k  : Der Maßstabsfaktor (einheitslos)</li>
+    <li>f<span class = "sub">ck</span>   : Der charakteristische Wert der Betondruckfestigkeit in <div class="fracSmall"><span>N</span><span class="symbol">/</span> <span class="bottom">mm²</span> </div></li>
+</ul>
+</details><br><br>
+<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Allerdings gibt es folgende untere Grenze für V<span class = "sub">Rd,c</span> , welche nicht unterschritten werden darf:</span><br><br>
+<span style="margin-left: 80px;margin-bottom: 30px;margin-top: 30px">[&#957 <span class = "sub">min</span>  + 0.12 · &#963 <span class = "sub">cp</span> ] · b<span class = "sub">w</span>  · d ÷ 10</span><br><br>
+<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Dabei wird &#957 <span class = "sub">min</span>  abhängig von der statischen Höhe d berechnet:</span><br><br>
+<details style="margin-left: 80px">
+<summary>Für d  &#8804  600mm : = 0.035 · k<span class = "sup">3/2</span>  · (f<span class = "sub">ck</span> )<span class = "sup">1/2</span>  = 0.035 · 1.60302 <span class = "sup">3/2</span>  · (30 <div class="fracSmall"><span>N</span><span class="symbol">/</span> <span class="bottom">mm²</span> </div>)<span class = "sup">1/2</span>  = 0.38908 <div class="fracSmall"><span>N</span><span class="symbol">/</span> <span class="bottom">mm²</span> </div></summary>
+
+<p style="margin: 5px 5px 0px 40px"><font size="2">mit:</font></p>
+<ul style="margin-left: 40px;margin-top: 0px">
+    <li>k  : Der Maßstabsfaktor (einheitslos)</li>
+    <li>f<span class = "sub">ck</span>   : Der charakteristische Wert der Betondruckfestigkeit in <div class="fracSmall"><span>N</span><span class="symbol">/</span> <span class="bottom">mm²</span> </div></li>
+</ul>
+</details><br><br>
+<details style="margin-left: 80px">
+<summary>Für d > 800mm : = 0.025 · k<span class = "sup">3/2</span>  · (f<span class = "sub">ck</span> )<span class = "sup">1/2</span>  = 0.025 · 1.60302 <span class = "sup">3/2</span>  · (30 <div class="fracSmall"><span>N</span><span class="symbol">/</span> <span class="bottom">mm²</span> </div>)<span class = "sup">1/2</span>  = 0.27791 <div class="fracSmall"><span>N</span><span class="symbol">/</span> <span class="bottom">mm²</span> </div></summary>
+
+<p style="margin: 5px 5px 0px 40px"><font size="2">mit:</font></p>
+<ul style="margin-left: 40px;margin-top: 0px">
+    <li>k  : Der Maßstabsfaktor (einheitslos)</li>
+    <li>f<span class = "sub">ck</span>   : Der charakteristische Wert der Betondruckfestigkeit in <div class="fracSmall"><span>N</span><span class="symbol">/</span> <span class="bottom">mm²</span> </div></li>
+</ul>
+</details><br><br>
+<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Somit ist &#957 <span class = "sub">min</span>  = 0.38908 und die untere Grenze für V<span class = "sub">Rd,c</span>  beträgt:</span><br><br>
+<span style="margin-left: 80px;margin-bottom: 30px;margin-top: 30px">[0.38908 + 0.12 · -0.00556] · 300.0 · 550.0 = 64088.09188 N = 64.08809 kN</span><br><br>
+<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Da V<span class = "sub">Rd,c</span>  mit 32.17267 kN kleiner ist, wird der Grenzwert für den Nachweis verwendet.</span><br><br>
 <span id="nachweis">
-<div class="frac"><span>V<span class = "sub">Ed</span> </span><span class="symbol">/</span> <span class="bottom">V<span class = "sub">Rd,c</span> </span> </div> = <div class="frac"><span>350.0</span><span class="symbol">/</span> <span class="bottom">103.17</span> </div> = <span style="font-size: 20px;">3.39</span><span style="font-size: 28px;"> > 1   &#8623 </span><br>Damit ist der Nachweis <b>nicht</b> erfüllt.
+<div class="frac"><span>V<span class = "sub">Ed</span> </span><span class="symbol">/</span> <span class="bottom">V<span class = "sub">Rd,c</span> </span> </div> = <div class="frac"><span>200.0</span><span class="symbol">/</span> <span class="bottom">64.08809</span> </div> = <span style="font-size: 20px;">3.1207</span><span style="font-size: 28px;"> > 1   &#8623 </span><br>Damit ist der Nachweis <b>nicht</b> erfüllt.
  </span><span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Somit ist rechnerisch eine Querkraftbewehrung erforderlich.</span><br><br>
 <br>
 <hr>
 <h2 style="margin-left: 0px;margin-bottom: 10px" id="3) Berechnung der Druckstrebenneigung"><u>3) Berechnung der Druckstrebenneigung</u></h2>
 
-<span style="margin-left: 40px">
-z = 503.0 mm</span><br><br>
-<span style="margin-left: 40px">
-V<span class = "sub">Rd,cc</span>  = 112.53 kN</span><br><br>
-<span style="margin-left: 40px">
-cot(&#920) = 1.77 </span><br><br>
-<span style="margin-left: 40px">
-&#920 = 29.48 °</span><br><br>
+<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Um den Nachweis der Druckstrebe führen zu können, benötigt man zunächst die Druckstrebenneigung &#920.</span><br><br>
+<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Der Kotangens dieses Winkels ist wie folgt begrenzt:</span><br><br>
+<span style="margin-left: 80px;margin-bottom: 30px;margin-top: 30px">1.0  &#8804  cot(&#920)  &#8804 <div class="frac"><span>1.2 + 1.4 · &#963 <span class = "sub">cp</span>  / f<span class = "sub">cd</span> </span><span class="symbol">/</span> <span class="bottom">1 - V<span class = "sub">Rd,cc</span>  / V<span class = "sub">Ed,Rand</span> </span> </div> < 3.0</span><br><br>
+<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Um ein wirtschaftliches Ergebnis zu erzielen, wird für cot(&#920) die obere Grenze gewählt.</span><br><br>
+<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Um V<span class = "sub">Rd,cc</span>  berechnen zu können, wird zusätzlich der innere Hebelarm ermittelt (vereinfachte Methode):</span><br><br>
+<details style="margin-left: 80px">
+<summary>z = 0.9 · d = 0.9 · 550.0 mm = 49.5 cm</summary>
+
+<p style="margin: 5px 5px 0px 40px"><font size="2">mit:</font></p>
+<ul style="margin-left: 40px;margin-top: 0px">
+    <li>d  : Die Statische Höhe in mm</li>
+</ul>
+</details><br><br>
+<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Dabei ist zu beachten, dass der Wert durch</span><br><br>
+<details style="margin-left: 80px">
+<summary>obere Grenze für z: = max <span style="font-size: 35px;">&#123</span>  d - c<span class = "sub">vl</span>  - 30 <span style="font-size: 28.0px;">,</span> d - 20 · c<span class = "sub">vl</span>  <span style="font-size: 35px;">&#125</span> = max <span style="font-size: 35px;">&#123</span>  550.0 mm - 16.0 mm - 30 <span style="font-size: 28.0px;">,</span> 550.0 mm - 20 · 16.0 mm <span style="font-size: 35px;">&#125</span> = 518.0 mm</summary>
+
+<p style="margin: 5px 5px 0px 40px"><font size="2">mit:</font></p>
+<ul style="margin-left: 40px;margin-top: 0px">
+    <li>c<span class = "sub">vl</span>   : Die Betondeckung der Längsbewehrung c<span class = "sub">vl</span>  in mm</li>
+    <li>d  : Die Statische Höhe in mm</li>
+</ul>
+</details><br><br>
+<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">begrenzt wird. Somit gilt:</span><br><br>
+<span style="margin-left: 120px;margin-bottom: 30px;margin-top: 30px">z = 495.0 mm</span><br><br>
+<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Im nächsten Schritt kann nun V<span class = "sub">Rd,cc</span>  berechnet werden.</span><br><br>
+<details style="margin-left: 80px">
+<summary>V<span class = "sub">Rd,cc</span>  = 0.24 · f<span class = "sub">ck</span> <span class = "sup">1/3</span>  · (1 - 1.2 · <div class="frac"><span>&#963 <span class = "sub">cd</span> </span><span class="symbol">/</span> <span class="bottom">f<span class = "sub">cd</span> </span> </div>) · b<span class = "sub">w</span>  · z ÷ 1000 = 0.24 · 30 <div class="fracSmall"><span>N</span><span class="symbol">/</span> <span class="bottom">mm²</span> </div><span class = "sup">1/3</span>  · (1 - 1.2 · <div class="frac"><span>-0.00556 <div class="fracSmall"><span>N</span><span class="symbol">/</span> <span class="bottom">mm²</span> </div></span><span class="symbol">/</span> <span class="bottom">17 <div class="fracSmall"><span>N</span><span class="symbol">/</span> <span class="bottom">mm²</span> </div></span> </div>) · 300.0 mm · 495.0 mm ÷ 1000 = 110.78519 kN</summary>
+
+<p style="margin: 5px 5px 0px 40px"><font size="2">mit:</font></p>
+<ul style="margin-left: 40px;margin-top: 0px">
+    <li>z  : Der Hebelarm der inneren Kräfte (vereinfacht berechnet) in mm</li>
+    <li>b<span class = "sub">w</span>   : Die Querschnittsbreite in mm</li>
+    <li>&#963 <span class = "sub">cd</span>   : Der Bemessungswert der Betonlängsspannung in Höhe des Schwerpunkts des Querschnitts (ohne obere Grenze) in <div class="fracSmall"><span>N</span><span class="symbol">/</span> <span class="bottom">mm²</span> </div></li>
+    <li>f<span class = "sub">cd</span>   : Der Bemessungswert der Betondruckfestigkeit in <div class="fracSmall"><span>N</span><span class="symbol">/</span> <span class="bottom">mm²</span> </div></li>
+    <li>f<span class = "sub">ck</span>   : Der charakteristische Wert der Betondruckfestigkeit in <div class="fracSmall"><span>N</span><span class="symbol">/</span> <span class="bottom">mm²</span> </div></li>
+</ul>
+</details><br><br>
+<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Daraus ergibt sich ein cot(&#920) von:</span><br><br>
+<details style="margin-left: 80px">
+<summary>cot(&#920) = <div class="frac"><span>1.2 + 1.4 · &#963 <span class = "sub">cd</span>  ÷ f<span class = "sub">cd</span> </span><span class="symbol">/</span> <span class="bottom">1 - V<span class = "sub">Rd,cc</span>  ÷ V<span class = "sub">Ed</span> </span> </div> = <div class="frac"><span>1.2 + 1.4 · -0.00556 <div class="fracSmall"><span>N</span><span class="symbol">/</span> <span class="bottom">mm²</span> </div> ÷ 17 <div class="fracSmall"><span>N</span><span class="symbol">/</span> <span class="bottom">mm²</span> </div></span><span class="symbol">/</span> <span class="bottom">1 - 110.78519 kN ÷ 200.0 kN</span> </div> = 2.68911 </summary>
+
+<p style="margin: 5px 5px 0px 40px"><font size="2">mit:</font></p>
+<ul style="margin-left: 40px;margin-top: 0px">
+    <li>&#963 <span class = "sub">cd</span>   : Der Bemessungswert der Betonlängsspannung in Höhe des Schwerpunkts des Querschnitts (ohne obere Grenze) in <div class="fracSmall"><span>N</span><span class="symbol">/</span> <span class="bottom">mm²</span> </div></li>
+    <li>f<span class = "sub">cd</span>   : Der Bemessungswert der Betondruckfestigkeit in <div class="fracSmall"><span>N</span><span class="symbol">/</span> <span class="bottom">mm²</span> </div></li>
+    <li>V<span class = "sub">Ed</span>   : Die angegebene Querkraft in kN</li>
+    <li>V<span class = "sub">Rd,cc</span>   : Die aufnehmbare Querkraft mit Bügelbewehrung in kN</li>
+</ul>
+</details><br><br>
+<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Somit ist die Druckstrebe um 20.39866 ° geneigt.</span><br><br>
 <br>
 <hr>
 <h2 style="margin-left: 0px;margin-bottom: 10px" id="4) Nachweis der Druckstrebe"><u>4) Nachweis der Druckstrebe</u></h2>
 
-<span style="margin-left: 40px">
-V<span class = "sub">Rd,max</span>  = 824.31 kN</span><br><br>
+<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Um ein Versagen des Bauteils auf Grund zu hoher Druckspannungen zu vermeiden, muss sichergestellt werden, dass diese Grenze eingehalten ist.</span><br><br>
+<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Alle dafür erforderlichen Größen wurden im Verlauf der vorherigen Berechnungen bereits ermittelt. Somit ergibt sich ein V<span class = "sub">Rd,max</span>  von:</span><br><br>
+<details style="margin-left: 80px">
+<summary>V<span class = "sub">Rd,max</span>  = b<span class = "sub">w</span>  · z · 0.75 · f<span class = "sub">cd</span>  · <div class="frac"><span>cot(&#920) + cot(&#945)</span><span class="symbol">/</span> <span class="bottom">1 + cot(&#920)<span class = "sup">2</span> </span> </div> ÷ 1000 = 300.0 mm · 495.0 mm · 0.75 · 17 <div class="fracSmall"><span>N</span><span class="symbol">/</span> <span class="bottom">mm²</span> </div> · <div class="frac"><span>2.68911  + cot(90.0 °)</span><span class="symbol">/</span> <span class="bottom">1 + 2.68911 <span class = "sup">2</span> </span> </div> ÷ 1000 = 618.55171 kN</summary>
+
+<p style="margin: 5px 5px 0px 40px"><font size="2">mit:</font></p>
+<ul style="margin-left: 40px;margin-top: 0px">
+    <li>&#945  : Der Winkel in welchem die Querkraftbewehrung angeordnet ist in °</li>
+    <li>z  : Der Hebelarm der inneren Kräfte (vereinfacht berechnet) in mm</li>
+    <li>b<span class = "sub">w</span>   : Die Querschnittsbreite in mm</li>
+    <li>f<span class = "sub">cd</span>   : Der Bemessungswert der Betondruckfestigkeit in <div class="fracSmall"><span>N</span><span class="symbol">/</span> <span class="bottom">mm²</span> </div></li>
+    <li>cot(&#920)  : Der Cotangens der Druckstrebenneigung &#920 (einheitslos)</li>
+</ul>
+</details><br><br>
+<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Dieser Wert kann nun der Querkraft gegenübergestellt werden:</span><br><br>
 <span id="nachweis">
-<div class="frac"><span>V<span class = "sub">Ed</span> </span><span class="symbol">/</span> <span class="bottom">V<span class = "sub">Rd,max</span> </span> </div> = <div class="frac"><span>350.0</span><span class="symbol">/</span> <span class="bottom">824.31</span> </div> = <span style="font-size: 20px;">0.42</span><span style="font-size: 28px;"> &#8804  1     &#10004 </span><br>Damit ist der Nachweis erfüllt.
+<div class="frac"><span>V<span class = "sub">Ed</span> </span><span class="symbol">/</span> <span class="bottom">V<span class = "sub">Rd,max</span> </span> </div> = <div class="frac"><span>200.0</span><span class="symbol">/</span> <span class="bottom">618.55171</span> </div> = <span style="font-size: 20px;">0.32334</span><span style="font-size: 28px;"> &#8804  1     &#10004 </span><br>Damit ist der Nachweis erfüllt.
  </span><span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Somit kann die Druckstrebe die auftretenden Druckspannungen aufnehmen.</span><br><br>
 <br>
 <hr>
 <h2 style="margin-left: 0px;margin-bottom: 10px" id="5) Ermittlung der erforderlichen Querkraftbewehrung"><u>5) Ermittlung der erforderlichen Querkraftbewehrung</u></h2>
 
-<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">f<span class = "sub">ywd</span>  = 435 <div class="fracSmall"><span>N</span><span class="symbol">/</span> <span class="bottom">mm²</span> </div></span><br><br>
-<span style="margin-left: 40px">
-a<span class = "sub">sw</span>  = 9.04 <div class="fracSmall"><span>cm²</span><span class="symbol">/</span> <span class="bottom">m</span> </div></span><br><br>
+<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Die Querkraftbewehrung wird so gewählt, dass der Zuggurt maximal ausgelastet ist. Dadurch wird eine effiziente Bewehrungsmenge gewährleistet.</span><br><br>
+<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Die letzte fehlende Angabe ist die Streckgrenze das Bewehrungsstahls f<span class = "sub">ywd</span> :</span><br><br>
+<span style="margin-left: 80px;margin-bottom: 30px;margin-top: 30px">f<span class = "sub">ywd</span>  = 435 <div class="fracSmall"><span>N</span><span class="symbol">/</span> <span class="bottom">mm²</span> </div></span><br><br>
+<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Nun kann die erforderliche Querkraftbewehrung nach folgender Formel berechnet werden:</span><br><br>
+<details style="margin-left: 80px">
+<summary>a<span class = "sub">sw</span>  = <div class="frac"><span>V<span class = "sub">Ed</span>  · 1000</span><span class="symbol">/</span> <span class="bottom">f<span class = "sub">ywd</span>  · z · [cot(&#920) + cot(&#945)] · sin(&#945)</span> </div> · 10 = <div class="frac"><span>200.0 kN · 1000</span><span class="symbol">/</span> <span class="bottom">435 <div class="fracSmall"><span>N</span><span class="symbol">/</span> <span class="bottom">mm²</span> </div> · 495.0 mm · [2.68911  + cot(90.0 °)] · sin(90.0 °)</span> </div> · 10 = 3.45404 <div class="fracSmall"><span>cm²</span><span class="symbol">/</span> <span class="bottom">m</span> </div></summary>
+
+<p style="margin: 5px 5px 0px 40px"><font size="2">mit:</font></p>
+<ul style="margin-left: 40px;margin-top: 0px">
+    <li>f<span class = "sub">ywd</span>   : Der Bemessungswert der Betonstahlstreckgrenze in <div class="fracSmall"><span>N</span><span class="symbol">/</span> <span class="bottom">mm²</span> </div></li>
+    <li>&#945  : Der Winkel in welchem die Querkraftbewehrung angeordnet ist in °</li>
+    <li>z  : Der Hebelarm der inneren Kräfte (vereinfacht berechnet) in mm</li>
+    <li>V<span class = "sub">Ed</span>   : Die angegebene Querkraft in kN</li>
+    <li>cot(&#920)  : Der Cotangens der Druckstrebenneigung &#920 (einheitslos)</li>
+</ul>
+</details><br><br>
 <br>
 <hr>
 <h2 style="margin-left: 0px;margin-bottom: 10px" id="6) Einhalten der Mindestbewehrung"><u>6) Einhalten der Mindestbewehrung</u></h2>
 
-<span style="margin-left: 40px">
-C30/37 = 0 </span><br><br>
-<span style="margin-left: 40px">
-&#961 <span class = "sub">w,min</span>  = 0.93 ‰</span><br><br>
-<span style="margin-left: 40px">
-a<span class = "sub">sw,min</span>  = 2.79 <div class="fracSmall"><span>cm²</span><span class="symbol">/</span> <span class="bottom">m</span> </div></span><br><br>
+<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Um im Balken die erforderliche Mindestbewehrung einzuhalten, muss geprüft werden, ob die rechnerisch erforderliche Bewehrung ausreicht.</span><br><br>
+<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Für die Berechnung der Mindestbewehrung muss zunnächst der Mindestbewehrungsgrad &#961 <span class = "sub">w,min</span>  bekannt sein.</span><br><br>
+<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Dieser ist vom charakteristischen Mittelwert der Betonzugfestigkeit abhängig und beträgt bei einem C30/37:</span><br><br>
+<span style="margin-left: 80px;margin-bottom: 30px;margin-top: 30px">&#961 <span class = "sub">w,min</span>  = 0.93 ‰</span><br><br>
+<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Nun kann nach folgender Formel die Mindestquerkraftbewehrung berechnet werden:</span><br><br>
+<details style="margin-left: 80px">
+<summary>a<span class = "sub">sw,min</span>  = &#961 <span class = "sub">w,min</span>  · b<span class = "sub">w</span>  · sin(&#945) · 10 = 0.93 ‰ · 300.0 mm · sin(90.0 °) · 10 = 2.79 <div class="fracSmall"><span>cm²</span><span class="symbol">/</span> <span class="bottom">m</span> </div></summary>
+
+<p style="margin: 5px 5px 0px 40px"><font size="2">mit:</font></p>
+<ul style="margin-left: 40px;margin-top: 0px">
+    <li>&#961 <span class = "sub">w,min</span>   : Der Mindestbewehrungsgrad (auch Mindestschubbewehrungsgrad genannt) in ‰</li>
+    <li>&#945  : Der Winkel in welchem die Querkraftbewehrung angeordnet ist in °</li>
+    <li>b<span class = "sub">w</span>   : Die Querschnittsbreite in mm</li>
+</ul>
+</details><br><br>
 <span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Somit ist diese Grenze eingehalten.</span><br><br>
 <br>
 <hr>
 <h2 style="margin-left: 0px;margin-bottom: 10px" id="7) Wahl der Bewehrung"><u>7) Wahl der Bewehrung</u></h2>
 
-<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">0.3 · V<span class = "sub">Rd,max</span>   &#8804  V<span class = "sub">Ed</span>   &#8804  0.6 · V<span class = "sub">Rd,max</span>   => maximaler Abstand = 30 cm</span><br><br>
-<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Gewählte Bügelbewehrung (2-schnittig):</span><br><br>
-<span style="margin-left: 80px;margin-bottom: 30px;margin-top: 30px">Durchmesser: 12 mm</span><br><br>
-<span style="margin-left: 80px;margin-bottom: 30px;margin-top: 30px">Abstand: 25.0 cm</span><br><br>
-<span style="margin-left: 80px;margin-bottom: 30px;margin-top: 30px">Vorhandene Bewehung: 9.05<div class="frac"><span>cm²</span><span class="symbol">/</span> <span class="bottom">m</span> </div></span><br><br>
+<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Bei der Wahl der Bewehrung gibt es viele richtige Ansätze. Dieses Programm bietet lediglich eine effiziente Bewehrungsmege, um Stahl zu sparen.</span><br><br>
+<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Das einzige, das hierbei beachtet werden muss, ist der maximale Abstand der Bügel.</span><br><br>
+<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Dieser ist von der Ausnutzung des Zuggurts abhängig und beträgt in diesem Fall:</span><br><br>
+<span style="margin-left: 80px;margin-bottom: 30px;margin-top: 30px">Für 0.3 · V<span class = "sub">Rd,max</span>   &#8804  V<span class = "sub">Ed</span>   &#8804  0.6 · V<span class = "sub">Rd,max</span>  :      min <span style="font-size: 35px;">&#123</span> 0.5 · h <span style="font-size: 28.0px;">,</span> 30cm <span style="font-size: 35px;">&#125</span> = 30.0cm</span><br><br>
+<span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Demnach wäre eine passende Bügelbewehrung:</span><br><br>
+<span style="margin-left: 80px;margin-bottom: 30px;margin-top: 30px">Durchmesser: 6 mm</span><br><br>
+<span style="margin-left: 80px;margin-bottom: 30px;margin-top: 30px">Abstand: 15.0 cm</span><br><br>
+<span style="margin-left: 80px;margin-bottom: 30px;margin-top: 30px">Vorhandene Bewehung (2-schnittig): 3.76991<div class="fracSmall"><span>cm²</span><span class="symbol">/</span> <span class="bottom">m</span> </div></span><br><br>
 <span style="margin-left: 40px;margin-bottom: 30px;margin-top: 30px">Berechnung zu Ende.</span><br><br>
 <br>
 </body>

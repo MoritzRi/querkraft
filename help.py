@@ -1,5 +1,4 @@
-from PyQt5.QtWidgets import QLabel, QToolTip, QWidget
-import time
+from PyQt5.QtWidgets import QLabel
 
 groser = '\nDieser Wert muss größer als Null sein.'
 groserGleich = '\nDieser Wert muss größer-gleich Null sein.'

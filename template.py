@@ -10,7 +10,6 @@ import pdfkit
 from PyQt5.QtWidgets import QFileDialog, QMessageBox
 from math import atan, pi
 
-import querkraft
 
 RUNDUNG = 3
 INDENT = 40
@@ -22,7 +21,7 @@ sizeKlammern = 35 # Größe der Klammern '{}' und '[]'
 CURLAUF = '&#123'
 CURLZU = '&#125'
 KLEINERGLEICH = ' &#8804 '
-BLITZ = ' &#8623 ' # &#128498
+BLITZ = ' &#8623 '
 HAKEN = ' &#10004 '
 
 
@@ -47,15 +46,18 @@ def getPath(file, subDir = 'res'):
 def frac(varU, varD):
     return '<div class="frac"><span>{}</span>'.format(str(varU)) + '<span class="symbol">/</span> ' + '<span class="bottom">{}</span> '.format(str(varD)) + '</div>'
 
+
 # erstellt einen etwas kleineren Bruch un CSS (für die Einheiten)
 def fracSmall(varU, varD):
     return '<div class="fracSmall"><span>{}</span>'.format(str(varU)) + '<span class="symbol">/</span> ' + '<span class="bottom">{}</span> '.format(str(varD)) + '</div>'
       
+
 # stellt tiefer in CSS
 def sub(var1, var2):
     return str(var1) + '<span class = "sub">' +str(var2) + '</span> '
 
 
+# macht die sub Funktion wieder Rückgängig (um die wahre anzahl an Zeichen zählen zu können)
 def rmSub(string):
     return string.replace('<span class = "sub">', '').replace('</span>', '')
 
@@ -85,10 +87,11 @@ def max(var1, var2):
     return 'max {}  {} '.format(gross(CURLAUF, sizeKlammern), var1) + gross(',', sizeKlammern * .8) + ' {} {}'.format(var2, gross(CURLZU, sizeKlammern))
 
 
-# fügt rcihtige Menge an Leerzeichen an String, um bestimmte Zeilen zu alignen
+# fügt richtige Menge an Leerzeichen an String, um bestimmte Zeilen zu alignen
 def fixLength(string, length):
         l = len(rmSub(str(string)))
         return str(string) + ' ' * (length - l)
+
 
 # erstellt den HTML-Code für einen Titel
 def titel(string, count = 0):
@@ -205,9 +208,11 @@ def checkValues():
         if zwischenwerte[key] != zwischenwerte[key]:
             nanList.append(key)
     
+    # return, wenn alle Werte OK sind
     if not infList and not nanList:
         return
     
+    # Zeigt Fehlermeldung, wenn nicht alle Werte OK sind
     msg = QMessageBox()
     msg.setIcon(QMessageBox.Question)
     msg.setText('Unerwartete Werte')
@@ -303,7 +308,6 @@ def generateOutputPdf(self):
         if msg.clickedButton() == buttonO:
             return True
             
-
     global output
     
     outputFileName = 'Berechung_{}({}).pdf'.format(s.timestamp, output)
@@ -332,6 +336,7 @@ def generateOutputPdf(self):
             if msg.clickedButton() == buttonO:
                 return True
 
+
 # zeigt ein Dialogfenster, um die Datei zu speichern
 def save(outputFile, format="Alle Dateien(*.*)"):
     filePath, _ = QFileDialog.getSaveFileName(s, "Berechnung speichern...", outputFile, format)
@@ -341,6 +346,7 @@ def save(outputFile, format="Alle Dateien(*.*)"):
         return
 
     return filePath
+
 
 # Hier wird der kurze output erstellt
 def createTemplateKurz():
@@ -941,6 +947,8 @@ def bewehrungswahl():
 
 
 # Hier werden alle nötigen Informationen der Variablen deklariert
+# Eine eigene Klasse wür die Variablen zu schreiben wäre wesentlich besser, leider keine Zeit mehr
+# ToDo -> Klasse für Variablen schreiben
 def createData():
     # Lädt die globalen Variablen
     global namen
@@ -1162,7 +1170,6 @@ def createData():
                         'delta' : 'Die gewählte Querkraftbewehrung'
     }
 
-    
 
     # Alle Eingabeparameter am System
     eingabeparameterSystem = {  'hohe'           : fixLength('Höhe', 18) + '= {} cm',

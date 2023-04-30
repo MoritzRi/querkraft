@@ -296,7 +296,7 @@ QGroupBox::title {
             </sizepolicy>
            </property>
            <property name="text">
-            <string>4.5</string>
+            <string>0</string>
            </property>
           </widget>
          </item>
@@ -356,7 +356,7 @@ QGroupBox::title {
             </sizepolicy>
            </property>
            <property name="text">
-            <string>7</string>
+            <string>0</string>
            </property>
           </widget>
          </item>
@@ -375,7 +375,7 @@ QGroupBox::title {
             </size>
            </property>
            <property name="text">
-            <string>65</string>
+            <string>0</string>
            </property>
           </widget>
          </item>
@@ -402,7 +402,7 @@ QGroupBox::title {
             </sizepolicy>
            </property>
            <property name="text">
-            <string>30</string>
+            <string>0</string>
            </property>
           </widget>
          </item>
@@ -476,7 +476,7 @@ QGroupBox::title {
             </sizepolicy>
            </property>
            <property name="text">
-            <string>59</string>
+            <string>0</string>
            </property>
           </widget>
          </item>
@@ -489,7 +489,7 @@ QGroupBox::title {
             </sizepolicy>
            </property>
            <property name="text">
-            <string>29.5</string>
+            <string>0</string>
            </property>
           </widget>
          </item>
@@ -509,7 +509,7 @@ QGroupBox::title {
             </sizepolicy>
            </property>
            <property name="text">
-            <string>30</string>
+            <string>0</string>
            </property>
           </widget>
          </item>
@@ -542,7 +542,7 @@ QGroupBox::title {
             </sizepolicy>
            </property>
            <property name="text">
-            <string>95</string>
+            <string>0</string>
            </property>
           </widget>
          </item>
