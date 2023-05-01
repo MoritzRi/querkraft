@@ -52,4 +52,4 @@ Optional kann das Ergebnis mit kompletten Rechenweg auch als .html oder .pdf dat
 
 ---
 
-Ich hoffe natürlich, dass das Programm immer zuverlässig funktioniert und Vielen eine Hilfe sein wird, sei es für ein tieferes Verständnis oder einfach nur um Zeit zu sparen. Dennoch kann ich nicht garantieren, dass alle Ergebnisse richtig sind. Sollten Fragen auftauchen, Fehler entdeckt werden oder auch Ideen für eine Verbesserung aufkommen, schreibe mir gerne eine email mit dem Feedback an:
+Ich hoffe natürlich, dass das Programm immer zuverlässig funktioniert und Vielen eine Hilfe sein wird, sei es für ein tieferes Verständnis oder einfach nur um Zeit zu sparen. Dennoch kann ich nicht garantieren, dass alle Ergebnisse richtig sind.
