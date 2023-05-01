@@ -5,9 +5,11 @@
   - [Linux](#linux)
   - [macOS](#macOS)
 - [Usage](#usage)
+
 ---
 Dies Programm wurde im Rahmen einer Bachelorabreit geschrieben und ist in der Lage die Querkraftbemessung eines Stahlbetonbalkens nach der DIN EN 1992-1-1 und nationalen Anhang durchzufähren.
 ---
+
 # Installation
   ## Windows
   - Lade die Datei "[Balken.exe](https://github.com/MoritzRi/querkraft/raw/main/dist/Balken.exe)" herunter
