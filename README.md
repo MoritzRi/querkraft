@@ -26,6 +26,7 @@ Dies Programm wurde im Rahmen einer Bachelorabreit geschrieben und ist in der La
   aus.
 
  ## macOS
+ Das Programm wurde auf einer Virtuellen Maschine mit macOS 13 Ventura getestet. Auf anderen Versionen könnte es Komplikationen geben.
   - Lade die Datei "[Balken.app.zip](https://github.com/MoritzRi/querkraft/raw/main/dist/Balken.app.zip)" herunter.
   - Entpacke die Datei.
   - Führe die Datei im Anschluss aus.
