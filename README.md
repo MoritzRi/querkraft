@@ -3,7 +3,8 @@
 - [Installation](#installation)
   - [Windows](#windows)
   - [Linux](#linux)
-  - [macOS](#macOS)
+  - [macOS 13](#macOS13)
+  - [macOS 10](#macOS10)
 - [Usage](#usage)
 
 ---
@@ -25,12 +26,18 @@ Dies Programm wurde im Rahmen einer Bachelorabreit geschrieben und ist in der La
   ```
   aus.
 
- ## macOS
+ ## macOS 13
  Das Programm wurde auf einer Virtuellen Maschine mit macOS 13 Ventura getestet. Auf anderen Versionen könnte es Komplikationen geben.
   - Lade die Datei "[Balken.app.zip](https://github.com/MoritzRi/querkraft/raw/main/dist/Balken.app.zip)" herunter.
   - Entpacke die Datei.
   - Führe die Datei im Anschluss aus.
 
+## macOS 10
+ Das Programm wurde auf einer Virtuellen Maschine mit macOS 10 Catalina getestet. Diese Version ist hoffentlich kompatibel mit macOS 11 und macOS 12.
+  - Lade die Datei "[Balken.zip](https://github.com/MoritzRi/querkraft/raw/main/dist/Balken.zip)" herunter.
+  - Entpacke die Datei.
+  - Führe die Datei im Anschluss aus.
+  
 # Usage
   ## Parameter eingeben
 
