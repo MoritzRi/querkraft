@@ -18,7 +18,8 @@ helpTexte = {
     'Lagerung' : 'Es wirken günstige Druckspannungen, wenn der Balken direkt gelagert ist, also auf dem lastabtragenden Bauteil aufliegt.',
     'Fed' : 'Der Bemessungswert der optionalen Einzellast, welche ggf. auflagernah ist.' + groserGleich,
     'Av' : 'Der Abstand der Einzellast vom Auflagerrand.' + groserGleich,
-    'Qed' : 'Die Querkraft mit der gerechnet werden soll.' + groser,
+    'Qed' : 'Die maßgemende Querkraft mit der die Nachweise Vrdc, cot theta und Vrds gerechnet werden sollen.\nSind die beiden Werte für Ved gleich, wird von einer indirekten Lagerung ausgegangen.' + groser,
+    'Qed_rand' : 'Die Querkraft am Auflagerrand mit der der Nachweis Vrd,max gerechnet werden soll.\nSind die beiden Werte für Ved gleich, wird von einer indirekten Lagerung ausgegangen.' + groser,
     'Output' : 'Entscheide wie die Berechnung exportiert werden soll.\nBei einem ausführlichen Export empfiehlt sich das HTML-Format.\nLäuft das Programm auf einem Linux- oder macOS-System? Erfahre über den Reiter "Hilfe > Hilfe" mehr über die Ausgabemöglichkeiten.'
 }
 

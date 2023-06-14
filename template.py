@@ -248,6 +248,7 @@ def createTemplate(self):
     global output
 
     s = self
+
     RUNDUNG = s.dropDown_2.currentIndex()
 
     # lädt alle Informationen zu den Variablen
@@ -272,10 +273,15 @@ def createTemplate(self):
 
 # speichert die .html Datei ab
 def generateOutputHtml(self):
+    # Wenn die angegebendnen Querkräfte gleich sind, wird von einer indirekten Lagerung ausgegangen
+    if self.fenster == 'schnitt' and self.vedRand == self.vedVermindert:
+        self.lagerungDirekt = False
+    
     if createTemplate(self) == False:
         return False
     
     global output
+    global s
     
     outputFileName = 'Berechung_{}({}).html'.format(s.timestamp, output)
     #outputFileName = output + '.html'
@@ -288,6 +294,10 @@ def generateOutputHtml(self):
 
 # speichert die .pdf Datei ab
 def generateOutputPdf(self):
+    # Wenn die angegebendnen Querkräfte gleich sind, wird von einer indirekten Lagerung ausgegangen
+    if self.fenster == 'schnitt' and self.vedRand == self.vedVermindert:
+        self.lagerungDirekt = False
+
     if createTemplate(self) == False:
         return False
     
@@ -309,6 +319,7 @@ def generateOutputPdf(self):
             return True
             
     global output
+    global s
     
     outputFileName = 'Berechung_{}({}).pdf'.format(s.timestamp, output)
     #outputFileName = output + '.pdf'
@@ -524,6 +535,7 @@ def setVedsSystemKurz():
             bs += rechnungKurz('vedEinzellastVermindert')
         else:
             bs += lineRaw('Einzellast ist nicht auflagernah -> nicht vermindern')
+
     else:
         bs += lineRaw('Lagerung indirekt -> Querkraft nicht vermindern')
     return bs
@@ -573,6 +585,7 @@ def setVedsSystem():
         
         bs += lineRaw('Somit beläuft sich die abgeminderte Querkraft auf:')
         bs += rechnung('{} + {} = ', ['vedVermindert', 'vedStreckenlastVermindert', 'vedEinzellastVermindert'])
+        
     else:
         bs += lineRaw('Auf Grund der indirekten Lagerung kann die Querkraft nicht abgemindert werden.\n')
 
@@ -584,8 +597,14 @@ def setVedsSystem():
 def setVedsSchnittKurz():
     bs = titel('1) Querkräfte berechnen')
 
-    bs += lineRaw('Querkraft gegeben:')
-    bs += rechnungKurz('ved')
+    if s.lagerungDirekt == True:
+        bs += lineRaw('Lagerung direkt -> Querkräfte gegeben')
+        bs += rechnungKurz('vedVermindert')
+        bs += rechnungKurz('vedRand')
+
+    else:
+        bs += lineRaw('Lagerung indirekt -> Querkraft gegeben:')
+        bs += rechnungKurz('ved')
 
     return bs
 
@@ -594,7 +613,14 @@ def setVedsSchnittKurz():
 def setVedsSchnitt():
     bs = titel('1) Querkräfte berechnen')
 
-    bs += lineRaw('{} = {} {} (gegeben)'.format(namen['ved'], str(round(zwischenwerte['ved'], RUNDUNG)), einheiten['ved']))
+    if s.lagerungDirekt == True:
+        bs += lineRaw('Lagerung direkt -> Querkräfte gegeben')
+        bs += lineRaw('{} = {} {} (gegeben)'.format(namen['vedRand'], str(round(zwischenwerte['vedRand'], RUNDUNG)), einheiten['vedRand']))
+        bs += lineRaw('{} = {} {} (gegeben)'.format(namen['vedVermindert'], str(round(zwischenwerte['vedVermindert'], RUNDUNG)), einheiten['vedVermindert']))
+
+    else:
+        bs += lineRaw('Lagerung indirekt -> Querkraft gegeben:')
+        bs += lineRaw('{} = {} {} (gegeben)'.format(namen['ved'], str(round(zwischenwerte['ved'], RUNDUNG)), einheiten['ved']))
 
     return bs
 
@@ -614,11 +640,10 @@ def bewehrungErforderlichKurz():
     if s.lagerungDirekt:
         bs += lineRaw('Lagerung direkt -> verminderte Querkraft für Nachweis')
         bs += nachweis('vedVermindert', 'vRdc')
-    elif not s.lagerungDirekt and s.fenster == 'system':
+    elif not s.lagerungDirekt:
         bs += lineRaw('Lagerung indirekt -> Querkraft in der Auflagerachse für Nachweis')
         bs += nachweis('vedAchse', 'vRdc')
-    else:
-        bs += nachweis('ved', 'vRdc')
+    
     if not NACHWEIS:
         bs += lineRaw('Somit ist rechnerisch eine Querkraftbewehrung erforderlich.')
     else:
@@ -667,11 +692,10 @@ def bewehrungErforderlich():
     if s.lagerungDirekt:
         bs += lineRaw('Da die Lagerung direkt ist, kann für diesen Nachweis die verminderte Querkraft angesetzt werden:')
         bs += nachweis('vedVermindert', 'vRdc')
-    elif not s.lagerungDirekt and s.fenster == 'system':
+    elif not s.lagerungDirekt:
         bs += lineRaw('Da die Lagerung indirekt ist, muss für diesen Nachweis die Querkraft in der Auflagerachse angesetzt werden:')
         bs += nachweis('vedAchse', 'vRdc')
-    else:
-        bs += nachweis('ved', 'vRdc')
+
     if not NACHWEIS:
         bs += lineRaw('Somit ist rechnerisch eine Querkraftbewehrung erforderlich.')
     else:
@@ -727,15 +751,15 @@ def druckstrebenneigung():
 
         if s.lagerungDirekt:
             ved = 'vedVermindert'
-        elif s.fenster == 'system':
-            ved = 'vedAchse'
         else:
-            ved = 'ved'
+            ved = 'vedAchse'
 
         bs += lineRaw('Daraus ergibt sich ein {} von:'.format(namen['cot0']))
         bs += rechnung(frac('1.2 + 1.4 · {} ÷ {}', '1 - {} ÷ {}') + ' = ', ['cot0', 'sigmaCd', 'fcd', 'vRdcc', ved])
         if zwischenwerte['cot0'] == 1 or zwischenwerte['cot0'] == 3:
             bs += lineRaw('(begrenzt durch die oben genannten Grenzen)', 3)
+        if zwischenwerte[ved] < zwischenwerte['vRdcc']:
+            bs += lineRaw('Da {} kleiner als {} ist, kann die obere Grenze für {} von 3,0 gewählt werden.'.format(namen['ved'], namen['vRdcc'], namen['cot0']))
 
     elif COT_VERMINDERT == 1:
         bs += lineRaw('Damit der Nachweis der Druckstrebe aufgeht, wird für {} der Wert'.format(namen['cot0']))
@@ -758,12 +782,10 @@ def nachweisDruckstrebeKurz():
 
     bs += rechnungKurz('vRdMax')
 
-    if s.fenster == 'system' and s.lagerungDirekt:
+    if s.lagerungDirekt:
         ved = 'vedRand'
-    elif s.fenster == 'system' and not s.lagerungDirekt:
+    elif  not s.lagerungDirekt:
         ved = 'vedAchse'
-    else:
-        ved = 'ved'
 
     bs += nachweis(ved, 'vRdMax')
     if NACHWEIS:
@@ -782,7 +804,7 @@ def nachweisDruckstrebe():
     bs += lineRaw('Alle dafür erforderlichen Größen wurden im Verlauf der vorherigen Berechnungen bereits ermittelt. Somit ergibt sich ein {} von:'.format(namen['vRdMax']))
     bs += rechnung('{} · {} · 0.75 · {} · ' + frac('{} + cot({})', '1 + ' + sup('{}', '2')) + ' ÷ 1000 = ', ['vRdMax', 'breite', 'z', 'fcd', 'cot0', 'alpha', 'cot0'])
 
-    if s.fenster == 'system' and s.lagerungDirekt:
+    if s.lagerungDirekt:
         bs += lineRaw('Dieser Wert kann nun der Querkraft am Auflagerrand (direkte Lagerung) gegenübergestellt werden:')
         bs += nachweis('vedRand', 'vRdMax')
     elif s.fenster == 'system' and not s.lagerungDirekt:
@@ -805,10 +827,11 @@ def bewehrungKurz():
 
     bs += lineRaw('{} = {} {}'.format(namen['fywd'], zwischenwerte['fywd'], einheiten['fywd']), 1)
 
-    if not s.lagerungDirekt and s.fenster == 'system':
+    if not s.lagerungDirekt:
         bs += lineRaw('Lagerung indirekt -> Querkraft an Auflagerachse')
-    elif s.lagerungDirekt and s.fenster == 'system':
+    elif s.lagerungDirekt:
         bs += lineRaw('Lagerung direkt -> verminderte Querkraft')
+
     bs += rechnungKurz('asw')
     return bs
 
@@ -826,7 +849,7 @@ def bewehrung():
     if s.lagerungDirekt:
         bs += lineRaw('Da der Balken direkt gelagert ist, kann für die Querkraft der verminderte Wert angesetzt werden.')
         ved = 'vedVermindert'
-    elif not s.lagerungDirekt and s.fenster == 'system':
+    elif not s.lagerungDirekt:
         bs += lineRaw('Da der Balken indirekt gelagert ist, muss für die Querkraft der Wert in der Auflagerachse angesetzt werden.')
         ved = 'vedAchse'
     
@@ -839,7 +862,7 @@ def bewehrung():
 def mindestbewehrungKurz(massgebend = False):
     bs = titel('6) Einhalten der Mindestbewehrung')
 
-    bs += rechnungKurz('beton')
+    bs += lineRaw(namen['beton'])
     bs += rechnungKurz('pWmin')
     bs += rechnungKurz('aswMin')
 
@@ -857,6 +880,8 @@ def mindestbewehrungKurz(massgebend = False):
 # erstellt den HTML-Code für die Berechnung der Mindestquerkraftbewehrung (lang)
 def mindestbewehrung(massgebend = False):
     bs = titel('6) Einhalten der Mindestbewehrung')
+
+    bs += lineRaw(namen['beton'])
 
     if massgebend:
         bs += rechnung('{} · {} · sin({}) · 10 = ', ['aswMin', 'pWmin', 'breite', 'alpha'])
@@ -879,6 +904,7 @@ def mindestbewehrung(massgebend = False):
 
 # erstellt den HTML-Code für die Wahl der Querkraftbewehrung (kurz)
 def bewehrungswahlKurz():
+    global s
     bs = titel('7) Wahl der Bewehrung')
 
     if zwischenwerte['delta'][1] == 99:
@@ -888,7 +914,9 @@ def bewehrungswahlKurz():
     ved = zwischenwerte['ved']
     vRdMax = zwischenwerte['vRdMax']
 
-    if ved <= 0.3 * vRdMax:
+    if s.fenster == 'schnitt' and s.lagerungDirekt == True:
+        bs += lineRaw('Da die Lagerung direkt ist und keine Querkraft in Auflagerachse gegeben ist, wird der maximale Bügelabstand auf der sicheren Seite liegend auf {} {} gesetzt.'.format(zwischenwerte['maxAbstand'], einheiten['maxAbstand']))
+    elif ved <= 0.3 * vRdMax:
         bs += lineRaw('{} {} 0.3 · {} => {} = {} {}'.format(namen['ved'], KLEINERGLEICH, namen['vRdMax'], namen['maxAbstand'], zwischenwerte['maxAbstand'], einheiten['maxAbstand']))
     elif ved > 0.6 * vRdMax:
         bs += lineRaw('{} > 0.6 · {}  => {} = {} {}'.format(namen['ved'], namen['vRdMax'], namen['maxAbstand'], zwischenwerte['maxAbstand'], einheiten['maxAbstand']))
@@ -897,11 +925,11 @@ def bewehrungswahlKurz():
     
     d = zwischenwerte['delta'][1]
     a = zwischenwerte['delta'][2]
-    s = zwischenwerte['delta'][3]
+    schnittig = zwischenwerte['delta'][3]
     bewehrung = round((math.pi * (d/10 / 2)**2) / a * 2, RUNDUNG)
 
 
-    bs += lineRaw('Gewählte Bügelbewehrung ({}-schnittig):'.format(s))
+    bs += lineRaw('Gewählte Bügelbewehrung ({}-schnittig):'.format(schnittig))
     bs += lineRaw('Durchmesser: {} mm'.format(d), 2)
     bs += lineRaw('Abstand: {} cm'.format(a*100), 2)
     bs += lineRaw('Vorhandene Bewehung: {}'.format(bewehrung) + frac('cm²', 'm'), 2)
@@ -920,27 +948,33 @@ def bewehrungswahl():
     
     bs += lineRaw('Bei der Wahl der Bewehrung gibt es viele richtige Ansätze. Dieses Programm bietet lediglich eine effiziente Bewehrungsmege, um Stahl zu sparen.')
     bs += lineRaw('Das einzige, das hierbei beachtet werden muss, ist der maximale Abstand der Bügel.')
-    bs += lineRaw('Dieser ist von der Ausnutzung des Zuggurts abhängig und beträgt in diesem Fall:')
+    
 
     ved = zwischenwerte['ved']
     vRdMax = zwischenwerte['vRdMax']
 
-    if ved <= 0.3 * vRdMax:
+    if s.fenster == 'schnitt' and s.lagerungDirekt == True:
+        bs += lineRaw('Da die Lagerung direkt ist und keine Querkraft in Auflagerachse gegeben ist, wird der maximale Bügelabstand auf der sicheren Seite liegend auf {} {} gesetzt.'.format(zwischenwerte['maxAbstand'], einheiten['maxAbstand']))
+    
+    elif ved <= 0.3 * vRdMax:
+        bs += lineRaw('Dieser ist von der Ausnutzung des Zuggurts abhängig und beträgt in diesem Fall:')
         bs += lineRaw(('Für {} {} 0.3 · {} :      ' + min('0.7 · h', '30cm') + ' = {}cm').format(namen['ved'], KLEINERGLEICH, namen['vRdMax'], zwischenwerte['maxAbstand']), 2)
     elif ved > 0.6 * vRdMax:
+        bs += lineRaw('Dieser ist von der Ausnutzung des Zuggurts abhängig und beträgt in diesem Fall:')
         bs += lineRaw(('Für {} > 0.6 · {} :      ' + min('0.25 · h', '20cm') + ' = {}cm').format(namen['ved'], namen['vRdMax'], zwischenwerte['maxAbstand']), 2)
     else:
+        bs += lineRaw('Dieser ist von der Ausnutzung des Zuggurts abhängig und beträgt in diesem Fall:')
         bs += lineRaw(('Für 0.3 · {} {} {} {} 0.6 · {} :      ' + min('0.5 · h', '30cm') + ' = {}cm').format(namen['vRdMax'], KLEINERGLEICH, namen['ved'], KLEINERGLEICH, namen['vRdMax'], zwischenwerte['maxAbstand']), 2)
         
     d = zwischenwerte['delta'][1]
     a = zwischenwerte['delta'][2]
-    s = zwischenwerte['delta'][3]
+    schnittig = zwischenwerte['delta'][3]
     bewehrung = round((math.pi * (d/10 / 2)**2) / a * 2, RUNDUNG)
 
     bs += lineRaw('Demnach wäre eine passende Bügelbewehrung:')
     bs += lineRaw('Durchmesser: {} mm'.format(d), 2)
     bs += lineRaw('Abstand: {} cm'.format(a*100), 2)
-    bs += lineRaw('Vorhandene Bewehung ({}-schnittig): {}'.format(s, bewehrung) + fracSmall('cm²', 'm'), 2)
+    bs += lineRaw('Vorhandene Bewehung ({}-schnittig): {}'.format(schnittig, bewehrung) + fracSmall('cm²', 'm'), 2)
 
     bs += lineRaw('Berechnung zu Ende.')
     return bs
@@ -1194,7 +1228,8 @@ def createData():
                                 'cv'             : fixLength('Verlegemaß', 18) + '= {} cm',
                                 'alpha'          : fixLength('Alpha', 18) + '= {} °',
                                 'ned'            : fixLength(sub('N', 'Ed'), 18) + '= {} kN',
-                                'qed'            : fixLength(sub('V', 'Ed'), 18) + '= {} kN',
+                                'qed'            : fixLength(sub('V', 'Ed, vermindert'), 18) + '= {} kN',
+                                'qed_rand'            : fixLength(sub('V', 'Ed, Rand'), 18) + '= {} kN',
                               }
     
     # spezifische Ausgabeparameter am System

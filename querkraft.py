@@ -50,6 +50,7 @@ class Querkraft(QMainWindow):
 
    # Wenn Knopf "Berechnen" im Systemfenster gedrückt wird
    def clickedSystemButton(self):      
+      start = datetime.now().timestamp() *1000
       self.einzellastBox = self.groupBoxEinzellast.isChecked()
       print("Berechne System...\n\n")
 
@@ -58,12 +59,15 @@ class Querkraft(QMainWindow):
 
       if not self.berechnenSystem():
          return False
-      
+      end = datetime.now().timestamp() *1000
+
+      print('Dauer der Berechnung betrug {} ms'.format(end-start))
       return True
 
 
    # Wenn Knopf "Berechnen" im Schnittfenster gedrückt wird
    def clickedSchnittButton(self):      
+      start = datetime.now().timestamp() *1000
       self.einzellastBox = False
       print("Berechne Schnitt...\n\n")
 
@@ -72,6 +76,10 @@ class Querkraft(QMainWindow):
       
       if not self.berechnenSchnitt():
          return False
+      
+      end = datetime.now().timestamp() *1000
+
+      print('Dauer der Berechnung betrug {} ms'.format(end-start))
       
       return True
 
@@ -100,7 +108,7 @@ class Querkraft(QMainWindow):
    # Führt die Berechnung am Schnitt durch
    def berechnenSchnitt(self):
       # Lagerung setzten, weil es beim Schnitt keine gibt
-      self.lagerungDirekt = False
+      self.lagerungDirekt = True
 
       # alle Inputs als self.$VAR$ speichern
       self.assignInputVariables()
@@ -108,8 +116,8 @@ class Querkraft(QMainWindow):
       # einige wichtige Variablen setzten, die sonst nicht existieren
       qed = self.vars['qed']
       print(f'{qed = }')
-      self.vedAchse = qed
-      self.vedRand = qed
+      self.vedAchse = self.vars['qed_rand']
+      self.vedRand = self.vars['qed_rand']
       self.vedVermindert = qed
       
       self.declareMissingVariables()
@@ -141,6 +149,7 @@ class Querkraft(QMainWindow):
       # Nachkommastellen für das Ergebnis getten
       komma = self.dropDown_2.currentIndex()
       self.showErgebnis(komma)
+      return True
 
 
    # Wenn das b/h-Verhältnis zu groß ist -> Darauf hinweisen
@@ -252,7 +261,7 @@ class Querkraft(QMainWindow):
       cw.setParent(None)
       self.loadUi('system.ui')
       self.fenster = 'system'
-      self.inputListe = ['hohe', 'breite', 'lange', 'last', 'statHohe', 'auflagertiefe', 'zugbewehrung', 'cv', 'alpha', 'qed', 'ned', 'fed', 'av']
+      self.inputListe = ['hohe', 'breite', 'lange', 'last', 'statHohe', 'auflagertiefe', 'zugbewehrung', 'cv', 'alpha', 'qed', 'qed_rand', 'ned', 'fed', 'av']
       self.vars = { name : 0 for name in self.inputListe}
       
 
@@ -262,7 +271,7 @@ class Querkraft(QMainWindow):
       cw.setParent(None)
       self.loadUi('schnitt.ui')
       self.fenster = 'schnitt'
-      self.inputListe = ['hohe', 'breite', 'lange', 'last', 'statHohe', 'auflagertiefe', 'zugbewehrung', 'cv', 'alpha', 'qed', 'ned', 'fed', 'av']
+      self.inputListe = ['hohe', 'breite', 'lange', 'last', 'statHohe', 'auflagertiefe', 'zugbewehrung', 'cv', 'alpha', 'qed', 'qed_rand', 'ned', 'fed', 'av']
       self.vars = { name : 0 for name in self.inputListe}
 
 
@@ -385,7 +394,7 @@ class Querkraft(QMainWindow):
          input = float(input.replace(',', '.'))
 
          # Diese Inputs dürfen auch Null sein
-         if name == 'fed' or name == 'av': #or name == 'ned':
+         if name == 'fed' or name == 'av':
 
             # ZAHL größer-gleich 0 -> VALIDE
             if input >= 0:
@@ -619,7 +628,7 @@ class Querkraft(QMainWindow):
 
       if self.cot0 < 1:
          self.cot0 = 1
-      if self.cot0 > 3:
+      if self.cot0 > 3 or ved < self.vRdcc:
          self.cot0 = 3
       
       print('\n##### Berechnung der Druckstrebenneigung #####')
@@ -792,7 +801,9 @@ class Querkraft(QMainWindow):
 
    # ermittelt den maximal erlaubten Bügelabstand
    def maxBuegelAbstand(self):
-      if self.vedAchse > 0.6*self.vRdMax:
+      if self.fenster == 'schnitt' and self.vedRand != self.vedVermindert:
+         self.maxAbstand = min(0.25 * self.hohe, 20)
+      elif self.vedAchse > 0.6*self.vRdMax:
          self.maxAbstand = min(0.25 * self.hohe, 20)
       elif self.vedAchse < 0.3*self.vRdMax:
          self.maxAbstand = min(0.7 * self.hohe, 30)
@@ -845,6 +856,7 @@ class Querkraft(QMainWindow):
       self.cv  = self.vars['cv']
       self.alpha  = self.vars['alpha']
       self.qed  = self.vars['qed']
+      self.qed_rand  = self.vars['qed_rand']
       self.ned  = self.vars['ned']
       self.fed  = self.vars['fed']
       self.av  = self.vars['av']

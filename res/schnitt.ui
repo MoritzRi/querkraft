@@ -370,22 +370,22 @@ QGroupBox::title {
          <property name="bottomMargin">
           <number>9</number>
          </property>
-         <item row="6" column="2">
-          <widget class="QLabel" name="einheitQed">
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_zugbewehrung">
            <property name="text">
-            <string>kN</string>
+            <string>Zugbewehrung:</string>
            </property>
           </widget>
          </item>
-         <item row="6" column="0">
-          <widget class="QLabel" name="label_qed">
+         <item row="4" column="0">
+          <widget class="QLabel" name="label_cv">
            <property name="text">
-            <string>Qed</string>
+            <string>Betondeckung:</string>
            </property>
           </widget>
          </item>
-         <item row="6" column="1">
-          <widget class="QLineEdit" name="qed">
+         <item row="4" column="1">
+          <widget class="QLineEdit" name="cv">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
              <horstretch>0</horstretch>
@@ -397,14 +397,41 @@ QGroupBox::title {
            </property>
           </widget>
          </item>
-         <item row="4" column="2">
-          <widget class="QLabel" name="einheitCv">
+         <item row="5" column="0">
+          <widget class="QLabel" name="label_alpha">
            <property name="text">
-            <string>cm</string>
+            <string>Bügelneigung:</string>
            </property>
           </widget>
          </item>
-         <item row="7" column="1">
+         <item row="5" column="1">
+          <widget class="QLineEdit" name="alpha">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>90</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="2">
+          <widget class="QLabel" name="einheitQed">
+           <property name="text">
+            <string>kN</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="0">
+          <widget class="QLabel" name="label_qed">
+           <property name="text">
+            <string>Ved (maßgeb.)</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="1">
           <widget class="QLineEdit" name="ned">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -424,6 +451,33 @@ QGroupBox::title {
            </property>
           </widget>
          </item>
+         <item row="4" column="2">
+          <widget class="QLabel" name="einheitCv">
+           <property name="text">
+            <string>cm</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="1">
+          <widget class="QLineEdit" name="qed">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>0</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="2">
+          <widget class="QLabel" name="einheitNed">
+           <property name="text">
+            <string>kN</string>
+           </property>
+          </widget>
+         </item>
          <item row="2" column="2">
           <widget class="QLabel" name="einheitStatHohe">
            <property name="text">
@@ -431,24 +485,10 @@ QGroupBox::title {
            </property>
           </widget>
          </item>
-         <item row="7" column="2">
-          <widget class="QLabel" name="einheitNed">
-           <property name="text">
-            <string>kN</string>
-           </property>
-          </widget>
-         </item>
          <item row="1" column="2">
           <widget class="QLabel" name="einheitBreite">
            <property name="text">
             <string>cm</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <widget class="QLabel" name="label_breite">
-           <property name="text">
-            <string>Breite:</string>
            </property>
           </widget>
          </item>
@@ -465,6 +505,13 @@ QGroupBox::title {
            </property>
           </widget>
          </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_breite">
+           <property name="text">
+            <string>Breite:</string>
+           </property>
+          </widget>
+         </item>
          <item row="0" column="0">
           <widget class="QLabel" name="label_hohe">
            <property name="sizePolicy">
@@ -478,6 +525,13 @@ QGroupBox::title {
            </property>
            <property name="text">
             <string>Höhe:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_statHohe">
+           <property name="text">
+            <string>Statische Höhe:</string>
            </property>
           </widget>
          </item>
@@ -520,20 +574,6 @@ QGroupBox::title {
            </property>
           </widget>
          </item>
-         <item row="2" column="0">
-          <widget class="QLabel" name="label_statHohe">
-           <property name="text">
-            <string>Statische Höhe:</string>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="2">
-          <widget class="QLabel" name="einheitZugbewehrung">
-           <property name="text">
-            <string>cm²</string>
-           </property>
-          </widget>
-         </item>
          <item row="2" column="1">
           <widget class="QLineEdit" name="statHohe">
            <property name="sizePolicy">
@@ -547,57 +587,45 @@ QGroupBox::title {
            </property>
           </widget>
          </item>
-         <item row="5" column="0">
-          <widget class="QLabel" name="label_alpha">
+         <item row="3" column="2">
+          <widget class="QLabel" name="einheitZugbewehrung">
            <property name="text">
-            <string>Bügelneigung:</string>
+            <string>cm²</string>
            </property>
           </widget>
          </item>
-         <item row="5" column="1">
-          <widget class="QLineEdit" name="alpha">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="text">
-            <string>90</string>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="1">
-          <widget class="QLineEdit" name="cv">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="text">
-            <string>0</string>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="0">
-          <widget class="QLabel" name="label_cv">
-           <property name="text">
-            <string>Betondeckung:</string>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="0">
-          <widget class="QLabel" name="label_zugbewehrung">
-           <property name="text">
-            <string>Zugbewehrung:</string>
-           </property>
-          </widget>
-         </item>
-         <item row="7" column="0">
+         <item row="8" column="0">
           <widget class="QLabel" name="label_ned">
            <property name="text">
             <string>Ned:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="3">
+          <widget class="QLabel" name="iconFragezeichenBreite">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap>iconFragezeichen.png</pixmap>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -635,36 +663,8 @@ QGroupBox::title {
            </property>
           </widget>
          </item>
-         <item row="1" column="3">
-          <widget class="QLabel" name="iconFragezeichenBreite">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>15</width>
-             <height>15</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>15</width>
-             <height>15</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="pixmap">
-            <pixmap>iconFragezeichen.png</pixmap>
-           </property>
-           <property name="scaledContents">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="3">
-          <widget class="QLabel" name="iconFragezeichenStatHohe">
+         <item row="4" column="3">
+          <widget class="QLabel" name="iconFragezeichenCv">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -719,8 +719,36 @@ QGroupBox::title {
            </property>
           </widget>
          </item>
-         <item row="4" column="3">
-          <widget class="QLabel" name="iconFragezeichenCv">
+         <item row="2" column="3">
+          <widget class="QLabel" name="iconFragezeichenStatHohe">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap>iconFragezeichen.png</pixmap>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="3">
+          <widget class="QLabel" name="iconFragezeichenNed">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -803,8 +831,35 @@ QGroupBox::title {
            </property>
           </widget>
          </item>
+         <item row="7" column="0">
+          <widget class="QLabel" name="label_qed_rand">
+           <property name="text">
+            <string>Ved (Rand)</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="1">
+          <widget class="QLineEdit" name="qed_rand">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>0</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="2">
+          <widget class="QLabel" name="einheitQed_2">
+           <property name="text">
+            <string>kN</string>
+           </property>
+          </widget>
+         </item>
          <item row="7" column="3">
-          <widget class="QLabel" name="iconFragezeichenNed">
+          <widget class="QLabel" name="iconFragezeichenQed_rand">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -1135,11 +1190,14 @@ QGroupBox::title {
   <tabstop>cv</tabstop>
   <tabstop>alpha</tabstop>
   <tabstop>qed</tabstop>
+  <tabstop>qed_rand</tabstop>
   <tabstop>ned</tabstop>
   <tabstop>dropDown</tabstop>
   <tabstop>dropDown_2</tabstop>
   <tabstop>radioButtonKurz</tabstop>
   <tabstop>radioButtonAusfuhrlich</tabstop>
+  <tabstop>buttonSpeichernPdf</tabstop>
+  <tabstop>buttonSpeichernHtml</tabstop>
   <tabstop>berechnen</tabstop>
  </tabstops>
  <resources/>
@@ -1151,8 +1209,8 @@ QGroupBox::title {
    <slot>enter()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>249</x>
-     <y>99</y>
+     <x>253</x>
+     <y>89</y>
     </hint>
     <hint type="destinationlabel">
      <x>41</x>
@@ -1167,8 +1225,8 @@ QGroupBox::title {
    <slot>enter()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>249</x>
-     <y>133</y>
+     <x>253</x>
+     <y>125</y>
     </hint>
     <hint type="destinationlabel">
      <x>78</x>
@@ -1199,8 +1257,8 @@ QGroupBox::title {
    <slot>enter()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>249</x>
-     <y>167</y>
+     <x>253</x>
+     <y>161</y>
     </hint>
     <hint type="destinationlabel">
      <x>241</x>
@@ -1215,8 +1273,8 @@ QGroupBox::title {
    <slot>enter()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>249</x>
-     <y>201</y>
+     <x>253</x>
+     <y>197</y>
     </hint>
     <hint type="destinationlabel">
      <x>405</x>
@@ -1231,8 +1289,8 @@ QGroupBox::title {
    <slot>enter()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>249</x>
-     <y>235</y>
+     <x>253</x>
+     <y>233</y>
     </hint>
     <hint type="destinationlabel">
      <x>473</x>
@@ -1263,8 +1321,8 @@ QGroupBox::title {
    <slot>enter()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>249</x>
-     <y>337</y>
+     <x>253</x>
+     <y>377</y>
     </hint>
     <hint type="destinationlabel">
      <x>638</x>
@@ -1279,8 +1337,8 @@ QGroupBox::title {
    <slot>clickedSchnittButton()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>671</x>
-     <y>422</y>
+     <x>779</x>
+     <y>479</y>
     </hint>
     <hint type="destinationlabel">
      <x>734</x>
@@ -1295,8 +1353,8 @@ QGroupBox::title {
    <slot>validate()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>236</x>
-     <y>99</y>
+     <x>253</x>
+     <y>89</y>
     </hint>
     <hint type="destinationlabel">
      <x>644</x>
@@ -1311,8 +1369,8 @@ QGroupBox::title {
    <slot>validate()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>200</x>
-     <y>130</y>
+     <x>253</x>
+     <y>125</y>
     </hint>
     <hint type="destinationlabel">
      <x>658</x>
@@ -1327,8 +1385,8 @@ QGroupBox::title {
    <slot>validate()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>249</x>
-     <y>167</y>
+     <x>253</x>
+     <y>161</y>
     </hint>
     <hint type="destinationlabel">
      <x>638</x>
@@ -1343,8 +1401,8 @@ QGroupBox::title {
    <slot>validate()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>187</x>
-     <y>199</y>
+     <x>253</x>
+     <y>197</y>
     </hint>
     <hint type="destinationlabel">
      <x>603</x>
@@ -1359,8 +1417,8 @@ QGroupBox::title {
    <slot>validate()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>165</x>
-     <y>234</y>
+     <x>253</x>
+     <y>233</y>
     </hint>
     <hint type="destinationlabel">
      <x>679</x>
@@ -1407,8 +1465,8 @@ QGroupBox::title {
    <slot>validate()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>249</x>
-     <y>337</y>
+     <x>253</x>
+     <y>377</y>
     </hint>
     <hint type="destinationlabel">
      <x>607</x>
@@ -1423,8 +1481,8 @@ QGroupBox::title {
    <slot>speichernHtml()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>679</x>
-     <y>381</y>
+     <x>748</x>
+     <y>404</y>
     </hint>
     <hint type="destinationlabel">
      <x>588</x>
@@ -1439,12 +1497,44 @@ QGroupBox::title {
    <slot>speichernPdf()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>729</x>
-     <y>382</y>
+     <x>667</x>
+     <y>404</y>
     </hint>
     <hint type="destinationlabel">
      <x>599</x>
      <y>407</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>qed_rand</sender>
+   <signal>returnPressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>enter()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>147</x>
+     <y>336</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>303</x>
+     <y>428</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>qed_rand</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>validate()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>190</x>
+     <y>337</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>264</x>
+     <y>32</y>
     </hint>
    </hints>
   </connection>
