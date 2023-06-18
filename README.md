@@ -3,8 +3,7 @@
 - [Installation](#installation)
   - [Windows](#windows)
   - [Linux](#linux)
-  - [macOS 13](#macOS13)
-  - [macOS 10](#macOS10)
+  - [macOS 10 und höher](#macOS10undhöher)
 - [Usage](#usage)
 
 ---
@@ -24,19 +23,18 @@ Dies Programm wurde im Rahmen einer Bachelorabreit geschrieben und ist in der La
   ```
   chmod +x Balken
   ```
+  oder
+  ```
+  chmod 777 Balken
+  ```
   aus.
 
- ## macOS 13
- Das Programm wurde auf einer Virtuellen Maschine mit macOS 13 Ventura getestet. Auf anderen Versionen könnte es Komplikationen geben.
-  - Lade die Datei "[Balken.app.zip](https://github.com/MoritzRi/querkraft/raw/main/dist/Balken.app.zip)" herunter.
-  - Entpacke die Datei.
-  - Führe die Datei im Anschluss aus.
 
-## macOS 10
- Das Programm wurde auf einer Virtuellen Maschine mit macOS 10 Catalina getestet. Diese Version ist hoffentlich kompatibel mit macOS 11 und macOS 12.
+## macOS 10 und höher
+ Das Programm wurde auf einer Virtuellen Maschine mit macOS 10 Catalina getestet. Diese Version sollte auch mit höheren Versionen kompatibel sein.
   - Lade die Datei "[Balken.zip](https://github.com/MoritzRi/querkraft/raw/main/dist/Balken.zip)" herunter.
   - Entpacke die Datei.
-  - Führe die Datei im Anschluss aus.
+  - Führe die Datei im Anschluss aus (Rechtsklick > öffnen).
   
 # Usage
   ## Parameter eingeben
